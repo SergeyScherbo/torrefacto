@@ -1,0 +1,44 @@
+%pos-rel {
+  position: relative;
+}
+
+%pos-abs {
+  position: absolute;
+}
+
+%disp-fl {
+	display: flex;
+}
+
+%disp-blk {
+  display: block;
+}
+
+%just-sb {
+  justify-content: space-between;
+}
+
+%txt-up {
+  text-transform: uppercase;
+}
+
+%fweight-700 {
+	font-weight: 700;
+}
+
+%fweight-900 {
+	font-weight: 900;
+}
+
+%lspace-2 {
+	letter-spacing: 2px;
+}
+
+%vertical {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+%bord-rad50 {
+	border-radius: 50%;
+}

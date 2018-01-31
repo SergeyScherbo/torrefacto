@@ -1,0 +1,87 @@
+extends shared/_layout
+  
+block content
+	.back-row
+		a.go-back
+			i
+				+icon('ico-left')
+			span Назад в каталог
+
+	.product
+		.product-row
+			.product-image
+				.product-image__package
+					img(src='img/package.png')
+				a.product-image__beans
+					img(src='img/coffee-beans.jpg')
+					i
+						+icon('ico-zoom')
+			.product-buy
+				.product-buy__name
+					.product-buy__name--left
+						.product-icons
+							.circle
+							.spades
+								i
+									+icon('ico-spades')
+								span Микро<br>лот
+						header.product-name
+							h3 Гондурас
+							p Сан-Марко
+					.product-buy__name--right
+						.product-number
+							i
+								+icon('ico-number')
+							span 2<br>2
+
+				.product-buy__info
+					.product-rating
+						ul.stars
+							li.stars__el
+								i
+									+icon('ico-star')
+							li.stars__el
+								i
+									+icon('ico-star')
+							li.stars__el
+								i
+									+icon('ico-star')
+							li.stars__el
+								i
+									+icon('ico-star')
+							li.stars__el
+								i
+									+icon('ico-star')
+						.product-rating__number
+							span 4.12 (17 голосов)
+					p.product-description.text.text_small Гондурас Сан-Маркос - плотная арабика с сильным телом, шоколадным оттенком и горчинкой. Вкус плотный, ровный, нацеленный и устремленный.
+					ul.product-bitter
+						li.product-bitter
+						li.product-bitter
+						li.product-bitter
+						li.product-bitter
+						li.product-bitter
+						li.product-bitter
+						li.product-bitter
+						li.product-bitter
+						li.product-bitter
+
+				.product-buy__purchase
+
+
+	.nav-outer
+		ul.nav
+			li.nav__el
+				a.nav__link(href='#first').is-current Вкус
+			li.nav__el
+				a.nav__link(href='#second') Обзор
+			li.nav__el
+				a.nav__link(href='#third') Как готовить
+			li.nav__el
+				a.nav__link(href='#fourth') Происхождение
+
+	.pars
+		section.par.par_first#first(data-sectionName='Вкус')
+		section.par.par_second#second(data-sectionName='Обзор')
+		section.par.par_third#third(data-sectionName='Как готовить')
+		section.par.par_fourth#fourth(data-sectionName='Происхождение')

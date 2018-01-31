@@ -1,0 +1,135 @@
+// index
+.product {
+	margin-bottom: 100px;
+}
+
+.product-row {
+	@include row(center, flex-start);
+}
+
+.product-image {
+	@extend %pos-rel;
+	margin-top: 30px;
+
+	@include tablet {
+		@include hide;
+	}
+}
+
+.product-image__package {
+	width: 265px;
+	height: 400px;
+
+	object-fit: cover;
+}
+
+.product-image__beans {
+	@extend %pos-abs;
+	@extend %bord-rad50;
+	bottom: -40px;
+	right: -20px;
+	width: 110px;
+	height: 110px;
+	border: 3px solid $lightGray;
+	overflow: hidden;
+
+	i {
+		@extend %pos-abs;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 1.7rem;
+	}
+}
+
+.product-buy {
+	max-width: 340px;
+	margin-left: 105px;
+
+	@include tablet {
+		margin-left: 0;
+	}
+
+	@include phone {
+		max-width: 280px;
+	}
+}
+
+.product-buy__name {
+	@extend %disp-fl;
+	@extend %just-sb;
+	margin-bottom: 15px;
+}
+
+.circle {
+	@extend %vertical;
+	@extend %bord-rad50;
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	background-color: $green;
+}
+
+.spades {
+	@extend %vertical;
+
+	i {
+		@extend %vertical;
+		line-height: 10px;
+		margin-right: 10px;
+		font-size: 2.4rem;
+	}
+
+	span {
+		@extend %vertical;
+		@extend %txt-up;
+		@extend %fweight-700;
+		font-size: .8rem;
+	}
+}
+
+.product-name {
+	margin-top: 30px;
+	h3 {
+		@extend %fweight-900;
+		@extend %lspace-2;
+		margin-bottom: 10px;
+		font-size: 2.166rem;
+	}
+
+	p {
+		@extend %fweight-700;
+		@extend %txt-up;
+		@extend %lspace-2;
+	}
+}
+
+.product-number {
+	i {
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 25px;
+		margin-right: 20px;
+	}
+
+	span {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 4.83rem;
+	}
+}
+
+.product-rating {
+	@extend %disp-fl;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.stars {
+	@extend %disp-fl;
+
+	&__el {
+		color: $lightGray;
+		margin-right: 10px;
+	}
+}
