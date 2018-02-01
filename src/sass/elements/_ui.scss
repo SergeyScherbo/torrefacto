@@ -37,3 +37,13 @@
 	@extend %lspace-2;
 	@extend %fweight-700;
 }
+
+.heading-l2 {
+	@extend %fweight-900;
+	font-size: 2.1666rem;
+}
+
+.heading-l3 {
+	@extend %fweight-700;
+	@extend %txt-up;
+}

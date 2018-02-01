@@ -13,6 +13,7 @@ a {
   text-decoration: none;
 }
 
+h2,
 h3,
 p,
 ul {
@@ -71,6 +72,7 @@ body {
 
 .nav-outer {
   @extend %pos-rel;
+	@extend %main-transit;
   margin-bottom: -50px;
   height: 50px;
   border-top: 3px solid $lightGray;
@@ -90,6 +92,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+	box-shadow: 0 3px 6px 0 fade-out(#000, .8);
 }
 
 .nav__link {
@@ -136,10 +139,11 @@ body {
 
 .par {
   height: 800px;
+	outline: none;
 
   &_first {
     padding-top: 50px;
-    background-color: #EA7659;
+
   }
 
   &_second {

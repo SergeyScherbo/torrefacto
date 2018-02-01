@@ -59,7 +59,7 @@
 .product-buy__name {
 	@extend %disp-fl;
 	@extend %just-sb;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 
 .circle {
@@ -75,7 +75,7 @@
 .spades {
 	@extend %vertical;
 
-	i {
+	.ico {
 		@extend %vertical;
 		line-height: 10px;
 		margin-right: 10px;
@@ -107,17 +107,40 @@
 }
 
 .product-number {
-	i {
-		display: inline-block;
-		vertical-align: top;
-		margin-top: 25px;
-		margin-right: 20px;
+	@extend %disp-fl;
+
+	&--big {
+		.ico {
+			margin-top: 20px;
+			margin-right: 10px;
+		}
+
+		span {
+			@extend %fweight-900;
+			font-size: 4.83rem;
+			line-height: 4rem;
+		}
 	}
 
-	span {
-		display: inline-block;
-		vertical-align: top;
-		font-size: 4.83rem;
+	&--small {
+		.ico {
+			font-size: .5rem;
+			margin-top: 3px;
+			margin-right: 5px;
+		}
+
+		span {
+			@extend %fweight-900;
+			font-size: 1.5rem;
+			line-height: 1rem;
+		}
+	}
+}
+
+.product-heading {
+	margin-bottom: 20px;
+	.heading-l2 {
+		margin-bottom: 10px;
 	}
 }
 
