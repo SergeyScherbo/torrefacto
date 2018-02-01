@@ -31,25 +31,38 @@ body {
 
 .back-row {
 	@include row(flex-start);
+	@extend %pos-rel;
 	margin-top: 35px;
 	margin-bottom: 30px;
-}
 
-.go-back {
-	@extend %txt-up;
-
-	i {
-		@extend %vertical;
+	.link {
+		span {
+			border-bottom: 1px solid $mainColor;
+		}
 	}
-	span {
-		@extend %vertical;
-		@extend %fweight-700;
-		border-bottom: 1px solid $mainColor;
+
+	@include tablet {
+		display: block;
+		margin: 0;
+		margin-bottom: 20px;
+		text-align: center;
+		border-bottom: 1px solid $lightGray;
+
+		.link {
+			display: block;
+			height: 60px;
+			line-height: 70px;
+			.ico {
+				position: absolute;
+				left: 15px;
+				top: 25px;
+			}
+
+			span {
+				border: none;
+			}
+		}
 	}
-}
-
-.go-back {
-
 }
 
 .blank {

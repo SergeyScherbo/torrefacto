@@ -2,9 +2,8 @@ extends shared/_layout
   
 block content
 	.back-row
-		a.go-back
-			i
-				+icon('ico-left')
+		a.link(href='#back')
+			+icon('ico-left')
 			span Назад в каталог
 
 	.product
@@ -37,16 +36,16 @@ block content
 				.product-buy__info
 					.product-rating
 						ul.stars
-							li.stars__el
+							li.stars__el.stars__el--active
 								i
 									+icon('ico-star')
-							li.stars__el
+							li.stars__el.stars__el--active
 								i
 									+icon('ico-star')
-							li.stars__el
+							li.stars__el.stars__el--active
 								i
 									+icon('ico-star')
-							li.stars__el
+							li.stars__el.stars__el--active
 								i
 									+icon('ico-star')
 							li.stars__el
@@ -55,18 +54,50 @@ block content
 						.product-rating__number
 							span 4.12 (17 голосов)
 					p.product-description.text.text_small Гондурас Сан-Маркос - плотная арабика с сильным телом, шоколадным оттенком и горчинкой. Вкус плотный, ровный, нацеленный и устремленный.
-					ul.product-bitter
-						li.product-bitter
-						li.product-bitter
-						li.product-bitter
-						li.product-bitter
-						li.product-bitter
-						li.product-bitter
-						li.product-bitter
-						li.product-bitter
-						li.product-bitter
+					.bitter
+						span Кислотность
+						ul
+							li.bitter__el.bitter__el--active
+							li.bitter__el.bitter__el--active
+							li.bitter__el.bitter__el--active
+							li.bitter__el.bitter__el--active
+							li.bitter__el
+							li.bitter__el
+							li.bitter__el
+							li.bitter__el
+							li.bitter__el
 
-				.product-buy__purchase
+				form.product-buy__purchase
+					p.purchase-milling
+						span Помол
+						span + 50 &#8381;
+					.purchase-type
+						input(type='radio' name='purchase-type' id='purchaseType1' checked)
+						label(for='purchaseType1').purchase-type__el Не молоть
+						input(type='radio' name='purchase-type' id='purchaseType2')
+						label(for='purchaseType2').purchase-type__el Средний
+						input(type='radio' name='purchase-type' id='purchaseType3')
+						label(for='purchaseType3').purchase-type__el Мелкий
+					.purchase-weight
+						.purchase-weight__el
+							p 150 г
+							input(type='radio' name='purchase-weight' id='purchaseWeight1' checked)
+							label(for='purchaseWeight1').input 241 &#8381;
+						.purchase-weight__el
+							p 450 г
+							input(type='radio' name='purchase-weight' id='purchaseWeight2')
+							label(for='purchaseWeight2').input 513 &#8381;
+						span.x-sign &#x2715;
+						.purchase-weight__el
+							p шт
+							.purchase-amount
+								.purchase-amount__option.increment -
+								span 1
+								.purchase-amount__option.decrement +
+					.purchase-buttons
+						button.button.button--green Купить за
+							span.purchase-sum 250
+						a.link + Добавить в избранное
 
 
 	.nav-outer
@@ -79,9 +110,15 @@ block content
 				a.nav__link(href='#third') Как готовить
 			li.nav__el
 				a.nav__link(href='#fourth') Происхождение
+			li.nav__el
+				a.nav__link(href='#fifth') Характеристика
+			li.nav__el
+				a.nav__link(href='#sixth') Обсуждение
 
 	.pars
 		section.par.par_first#first(data-sectionName='Вкус')
 		section.par.par_second#second(data-sectionName='Обзор')
 		section.par.par_third#third(data-sectionName='Как готовить')
 		section.par.par_fourth#fourth(data-sectionName='Происхождение')
+		section.par.par_fourth#fifth(data-sectionName='Происхождение')
+		section.par.par_fourth#sixth(data-sectionName='Происхождение')

@@ -18,8 +18,16 @@
   justify-content: space-between;
 }
 
+%align-cent {
+	align-items: center;
+}
+
 %txt-up {
   text-transform: uppercase;
+}
+
+%txt-cent {
+	text-align: center;
 }
 
 %fweight-700 {
@@ -41,4 +49,12 @@
 
 %bord-rad50 {
 	border-radius: 50%;
+}
+
+%bord-rad3 {
+	border-radius: 3px;
+}
+
+%main-transit {
+	transition: .3s;
 }

@@ -1,6 +1,6 @@
 // index
 .product {
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 }
 
 .product-row {
@@ -48,6 +48,7 @@
 
 	@include tablet {
 		margin-left: 0;
+		max-width: 70%;
 	}
 
 	@include phone {
@@ -67,7 +68,8 @@
 	width: 30px;
 	height: 30px;
 	margin-right: 10px;
-	background-color: $green;
+	border: 3px solid $lightGray;
+	border-top: 3px solid $green;
 }
 
 .spades {
@@ -131,5 +133,204 @@
 	&__el {
 		color: $lightGray;
 		margin-right: 10px;
+
+		&--active {
+			color: $yellow;
+		}
+	}
+}
+
+.product-description {
+	margin-bottom: 20px;
+}
+
+.bitter {
+	@extend %disp-fl;
+	@extend %align-cent;
+
+	ul {
+		@extend %disp-fl;
+		margin-left: 65px;
+	}
+
+	@include tablet {
+		justify-content: space-between;
+	}
+}
+
+.bitter__el {
+	@extend %bord-rad50;
+	width: 5px;
+	height: 5px;
+	border: 1px solid $mainColor;
+
+	&:not(:last-of-type) {
+		margin-right: 10px;
+	}
+
+	&--active {
+		background-color: $mainColor;
+	}
+}
+
+.product-buy__purchase {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px dashed $lightGray;
+}
+
+.purchase-milling {
+	@extend %disp-fl;
+	@extend %just-sb;
+	margin-bottom: 5px;
+}
+
+.purchase-type {
+	@extend %disp-fl;
+	margin-bottom: 15px;
+
+	input {
+		@include hide;
+	}
+}
+
+.purchase-type__el {
+	@extend %main-transit;
+	flex: 1;
+	height: 35px;
+	line-height: 33px;
+	border: 1px solid $lightGray;
+	font-size: 1.1666rem;
+	text-align: center;
+	color: $gray;
+
+	&:first-of-type,
+	&:last-of-type {
+		@extend %pos-rel;
+		&:after {
+			@extend %pos-abs;
+			@extend %main-transit;
+			top: -1px;
+			content: '';
+			height: calc(100% + 2px);
+			width: 1px;
+			background-color: $mainColor;
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	&:first-of-type {
+		border-right: none;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+		&:after {
+			right: -1px;
+		}
+	}
+
+	&:last-of-type {
+		border-left: none;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+		&:after {
+			left: -1px;
+		}
+	}
+}
+
+input:checked + .purchase-type__el {
+	color: $mainColor;
+	border-color: $mainColor;
+
+	&:first-of-type,
+	&:last-of-type {
+		&:after {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.purchase-weight {
+	@extend %disp-fl;
+	@extend %just-sb;
+
+	.x-sign {
+		align-self: flex-end;
+		margin-bottom: 12px;
+		font-size: .7rem;
+	}
+}
+
+.purchase-weight__el {
+	input {
+		@include hide;
+	}
+
+	p {
+		margin-bottom: 5px;
+	}
+
+	label {
+		@extend %disp-blk;
+		@extend %main-transit;
+		width: 115px;
+		text-align: center;
+
+		@include phone {
+			width: 105px;
+		}
+	}
+
+	input:checked + label {
+		border-color: $mainColor;
+		color: $mainColor;
+	}
+}
+
+.purchase-amount {
+	@extend %disp-fl;
+	@extend %just-sb;
+	width: 75px;
+	height: 35px;
+	line-height: 36px;
+	border-radius: 3px;
+	border: 1px solid $mainColor;
+	overflow: hidden;
+	color: $mainColor;
+
+	@include phone {
+		width: auto;
+		min-width: 35px;
+		text-align: center;
+		display: block;
+	}
+}
+
+.purchase-amount__option {
+	width: 25px;
+	text-align: center;
+	font-size: 1.2rem;
+
+	&:hover {
+		background-color: $lightGray;
+	}
+
+	@include phone {
+		@include hide;
+	}
+}
+
+.purchase-buttons {
+	@extend %txt-cent;
+	.button {
+		width: 100%;
+		margin-top: 15px;
+		margin-bottom: 30px;
+
+		.purchase-sum {
+			margin-left: 5px;
+		}
 	}
 }

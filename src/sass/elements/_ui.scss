@@ -5,3 +5,35 @@
 		font-size: 1.1666rem;
 	}
 }
+
+.input {
+	height: 35px;
+	line-height: 33px;
+	border: 1px solid $lightGray;
+	border-radius: 3px;
+	font-size: 1.1666rem;
+	color: $gray;
+}
+
+.button {
+	@extend %txt-up;
+	@extend %bord-rad3;
+	@extend %lspace-2;
+	@extend %fweight-700;
+	outline: none;
+	border: none;
+	height: 35px;
+	line-height: 35px;
+	font-family: 'Circe';
+
+	&--green {
+		background-color: $green;
+		color: #fff;
+	}
+}
+
+.link {
+	@extend %txt-up;
+	@extend %lspace-2;
+	@extend %fweight-700;
+}
