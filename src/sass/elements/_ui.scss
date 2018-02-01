@@ -9,15 +9,92 @@
 	&--medium {
 		font-size: 1.3333rem;
 	}
+
+	&--bold {
+		@extend %fweight-700;
+	}
+}
+
+.text-link {
+	color: $yellow;
+	text-decoration: underline;
 }
 
 .input {
+	@extend %main-transit;
+	outline: none;
 	height: 35px;
 	line-height: 33px;
+	padding: 0 15px;
 	border: 1px solid $lightGray;
 	border-radius: 3px;
 	font-size: 1.1666rem;
-	color: $gray;
+	font-family: 'Circe';
+	color: $mainColor;
+
+	&::placeholder {
+		@extend %txt-up;
+		color: $lightGray;
+	}
+
+	&--big {
+		width: 100%;
+		height: 100px;
+		margin-bottom: 20px;
+		padding: 10px 10px;
+		line-height: 1.5;
+		color: $mainColor;
+		resize: none;
+	}
+
+	&:focus {
+		border-color: $mainColor;
+	}
+}
+
+.checkbox {
+	input {
+		@include hide;
+	}
+
+	.checkbox-icon,
+	.checkbox-text {
+		@extend %vertical;
+	}
+
+	.checkbox-icon {
+		@extend %pos-rel;
+		@extend %bord-rad50;
+		width: 10px;
+		height: 10px;
+		margin-right: 10px;
+		border: 1px solid $mainColor;
+
+		&:after {
+			@extend %pos-abs;
+			@extend %bord-rad50;
+			@extend %main-transit;
+			content: '';
+			left: 50%;
+			top: 50%;
+			margin-left: -3px;
+			margin-top: -3px;
+			width: 6px;
+			height: 6px;
+			background-color: $mainColor;
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	input:checked + label {
+		.checkbox-icon {
+			&:after {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
 }
 
 .button {
@@ -43,14 +120,43 @@
 	}
 }
 
+@mixin link-hover($bgc) {
+	&:after {
+		@extend %pos-abs;
+		@extend %main-transit;
+		content: '';
+		top: calc(100% + 1px);
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background-color: $bgc;
+	}
+
+	&:hover {
+		&:after {
+			height: 3px;
+		}
+	}
+}
+
 .link {
 	@extend %txt-up;
 	@extend %lspace-2;
 	@extend %fweight-700;
 
-	&--underline {
-		border-bottom: 1px solid $mainColor;
+	&--default {
+
 	}
+
+	&--underline {
+		@include link-hover($mainColor);
+		@extend %pos-rel;
+	}
+}
+
+.link-wrap {
+	@extend %txt-cent;
+	width: 100%;
 }
 
 .heading-l2 {

@@ -4,17 +4,6 @@
 	background-color: $mainColor;
 	color: #fff;
 
-	// line to track middle of the element
-	// &:after {
-	// 	@extend %pos-abs;
-	// 	content: '';
-	// 	left: 50%;
-	// 	top: 0;
-	// 	height: 100%;
-	// 	width: 1px;
-	// 	background-color: #fff;
-	// }
-
 	@include laptop {
 		font-size: 1.2rem;
 	}
@@ -76,21 +65,20 @@
 }
 
 .account__link {
+	@extend %pos-rel;
 	&:not(.account__cart) {
-		border-bottom: 1px solid #fff;
+		@include link-hover(#fff);
 	}
 }
 
 .account__cart {
-	i {
-		display: inline-block;
-		vertical-align: middle;
+	.ico {
+		@extend %vertical;
 		line-height: 5px;
 		margin-right: 10px;
 	}
 	span {
-		display: inline-block;
-		vertical-align: middle;
+		@extend %vertical;
 
 		&:not(:last-of-type) {
 			margin-right: 5px;
@@ -98,7 +86,42 @@
 	}
 
 	@include laptop {
-		i {
+		position: relative;
+		display: block;
+		width: 35px;
+		height: 35px;
+		line-height: 35px;
+		text-align: center;
+
+		&:after {
+			position: absolute;
+			content: '';
+			left: 50%;
+			top: 50%;
+			margin-top: -17.5px;
+			margin-left: -17.5px;
+			width: 35px;
+			height: 35px;
+			border-radius: 50%;
+			background-color: #fff;
+			transform: scale(.3);
+			opacity: 0;
+			visibility: hidden;
+			transition: .3s;
+		}
+
+		&:hover {
+			color: $mainColor;
+			&:after {
+				transform: scale(1);
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		.ico {
+			position: relative;
+			z-index: 1;
 			font-size: 1.5rem;
 			margin-right: 0;
 		}
@@ -110,6 +133,8 @@
 
 // general navigatoin
 .navigation {
+	position: relative;
+	z-index: 2;
 	box-shadow: 0 3px 6px 0 fade-out(#000, .8);
 }
 
