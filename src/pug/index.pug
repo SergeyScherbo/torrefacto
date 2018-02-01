@@ -3,7 +3,7 @@ extends shared/_layout
 block content
 	.back-row
 		a.link(href='#back')
-			+icon('ico-left')
+			+icon('ico-right-arrow')
 			span Назад в каталог
 
 	.product
@@ -49,7 +49,7 @@ block content
 									+icon('ico-star')
 						.product-rating__number
 							span 4.12 (17 голосов)
-					p.product-description.text.text_small Гондурас Сан-Маркос - плотная арабика с сильным телом, шоколадным оттенком и горчинкой. Вкус плотный, ровный, нацеленный и устремленный.
+					p.product-description.text.text--small Гондурас Сан-Маркос - плотная арабика с сильным телом, шоколадным оттенком и горчинкой. Вкус плотный, ровный, нацеленный и устремленный.
 					.bitter
 						span Кислотность
 						ul
@@ -99,7 +99,7 @@ block content
 	.nav-outer
 		ul.nav
 			li.nav__el
-				a.nav__link(href='#first').is-current Вкус
+				a.nav__link(href='#first') Вкус
 			li.nav__el
 				a.nav__link(href='#second') Обзор
 			li.nav__el
@@ -111,10 +111,107 @@ block content
 			li.nav__el
 				a.nav__link(href='#sixth') Обсуждение
 
-	.pars
-		section.par.par_first#first(data-sectionName='Вкус')
-		section.par.par_second#second(data-sectionName='Обзор')
-		section.par.par_third#third(data-sectionName='Как готовить')
-		section.par.par_fourth#fourth(data-sectionName='Происхождение')
-		section.par.par_fourth#fifth(data-sectionName='Происхождение')
-		section.par.par_fourth#sixth(data-sectionName='Происхождение')
+	.about-product
+		.about-product__main
+			section.about-product__section.about-product__section--first(id='first' data-sectionName='Вкус')
+				h2.heading-l2 Вкусовые качества
+				.about-product__subsection
+					ul.tastes
+						li.tastes__el
+							i.icon.icon-nuts
+							h3.heading-l3 Орех
+						li.tastes__el
+							i.icon.icon-citrus
+							h3.heading-l3 Цитрус
+						li.tastes__el
+							i.icon.icon-berries
+							h3.heading-l3 Ягоды
+						li.tastes__el
+							i.icon.icon-alco
+							h3.heading-l3 Алкоголь
+				.about-product__subsection
+					p.text.text--medium Арабика ценится за уникальные вкусовые характеристики, которые несут с собой разные оттенки ее кислинки. Поэтому чем выше уровень арабики, тем у нее более сложный и многогранный вкус, заложенный в кислинке. Напротив, хорошая коммерческая арабика обладает достаточно линейным вкусом без особых нюансов — что, на самом деле, далеко не так плохо, как может показаться на первый взгляд, ведь кислинка нравится далеко не всем.
+				.cards
+					+icon('ico-right-arrow')
+					.card-group
+						.card
+							h3.heading-l3 Подробнее<br> о группе классика
+							.circle
+						.card
+							h3.heading-l3 Подробнее<br> о группах кофе
+							+icon('ico-fire')
+			section.about-product__section(id='second' data-sectionName='Обзор')
+				h2.heading-l2 Обзор от Сергея Плутахина
+				.about-product__subsection
+					.about-product__image
+						img(src='img/package-2.jpg')
+				.post
+					.post__av
+						img(src='img/avatar.png')
+					.post__comment
+						header.post__name.text.text--small Сергей Плутахин, Torrefacto
+						p.text.text--medium Когда мы впервые попробовали этот кофе, то были буквально ошеломлены: никаких вкусовых изысков, но какое мощное тело! Какая насыщенность! Сильный какао-профиль, минимальная кислинка, высокая плотность с легкими дымными нотками. По-другому не скажешь — у этого кофе очень сильный характер!
+						h3.heading-l3 Как готовить
+						p.text.text--medium Гондурас Сан-Маркос можно готовить любым способом, и в каждом он будет хорош по-своему. Однако с учетом его вкусовых характеристик мы в первую очередь рекомендуем его для эспрессо и турки, где важна насыщенность, затем для френч-пресса и моки (для тех, кто предпочитает в кофе «тело») и только потом для фильтр-кофемашин, которые хороши, на наш взгляд, для раскрытия изысканного вкуса.
+						p.text.text--medium Гондурас Сан-Маркос — один из бестселлеров Torrefacto.
+						a.link.link--underline Обсудить
+						
+			section.about-product__section(id='third' data-sectionName='Как готовить')
+				h2.heading-l2 Как готовить
+				.cards
+					+icon('ico-right-arrow')
+					.card-group
+						.card
+							h3.heading-l3 Как готовить<br> в турке?
+							+icon('ico-cezve')
+						.card
+							h3.heading-l3 Как заваривать<br> в мокке?
+							+icon('ico-moka')
+						.card
+							h3.heading-l3 Как готовить<br> в эспрессо машине?
+							+icon('ico-cof-machine')
+						.card
+							h3.heading-l3 Приготовление<br> во френч-прессе
+							+icon('ico-tea-pot')
+			section.about-product__section(id='fourth' data-sectionName='Происхождение')
+				h2.heading-l2 Происхождение
+				.about-product__subsection
+					h3.heading-l3 Ферма
+					p.text.text--medium 90% гондурасского кофе производится мелкими фермерами. Кофе спецификации СХГ (strictly high grown, противопоставляемый high grown, который растет ниже), как в случае нашего Сан-Маркоса, растет на высоте от 1500 до 2000 метров над уровнем моря. Сбор урожая осуществляется с ноября по март.
+				.about-product__subsection
+					h3.heading-l3 Регион
+					p.text.text--medium Западный Гондурас, где расположен муниципалитет Сан-Маркос, находится на передовой движения Гондураса к высококачественному кофе. Впрочем, сам Сан-Маркос производит достаточно неплохую коммерческую арабику, предлагаемую за весьма разумные деньги.
+				.about-product__subsection
+					.article
+						h3.heading-l3 Страна
+						h2.heading-l2 Гондурас: золото, серебро, дорогое дерево, кофейные и банановые плантации
+						a.button.button--white Подробнее в энциклопедии
+				.about-product__subsection
+					p.text.text--medium Вам нравится Куба? Вам нужна насыщенность? Вы не любите кислинку? Вы хотите лучшее соотношение цена-качество? Тогда Гондурас Сан-Маркос — одно из лучших предложений специально для вас.
+			section.about-product__section(id='fifth' data-sectionName='Происхождение')
+				h2.heading-l2 Характеристика
+				ul.list.text.text--medium
+					li.list__el 
+						span.list__key Вид
+						span.list__value арабика
+					li.list__el
+						span.list__key Разновидность
+						span.list__value бурбон, катурра
+					li.list__el 
+						span.list__key Способ обработки
+						span.list__value мытая
+					li.list__el 
+						span.list__key Высота произростания
+						span.list__value 1500-2000 м
+					li.list__el 
+						span.list__key Полное название
+						span.list__value Гондурас<br> Сан-Маркос СХГ
+					li.list__el 
+						span.list__key Урожай
+						span.list__value 2016/17 г.
+					li.list__el 
+						span.list__key Потенциал зерна
+						span.list__value 82,50
+			section.about-product__section(id='sixth' data-sectionName='Происхождение')
+				h2.heading-l2 Обсуждение Кофе Гондурас Сан-Маркос
+		.about-product__side

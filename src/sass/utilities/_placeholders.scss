@@ -18,6 +18,10 @@
   justify-content: space-between;
 }
 
+%just-cent {
+	justify-content: center;
+}
+
 %align-cent {
 	align-items: center;
 }
@@ -57,4 +61,8 @@
 
 %main-transit {
 	transition: .3s;
+}
+
+%main-shadow {
+	box-shadow: 0 3px 6px 0 fade-out(#000, .8);
 }

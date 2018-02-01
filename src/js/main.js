@@ -1,5 +1,6 @@
 if ($(window).width() > 767) {
   var nav = $('.nav-outer');
+			navHeight = nav.outerHeight();
       navOffset = $('.nav').offset().top;
 
   $(window).scroll(function() {
@@ -13,7 +14,7 @@ if ($(window).width() > 767) {
     var y = $(this).scrollTop();
 
     $('.nav__link').each(function (event) {
-      if (y >= $($(this).attr('href')).offset().top) {
+      if (y >= $($(this).attr('href')).offset().top - navHeight) {
         $('.nav__link').not(this).removeClass('is-current');
         $(this).addClass('is-current');
       }
@@ -26,15 +27,15 @@ if ($(window).width() > 767) {
       var hash = this.hash;
 
       $('html, body').animate({
-        scrollTop: $(hash).offset().top
+        scrollTop: $(hash).offset().top - navHeight
       }, 500, function() {
-        window.location.hash = hash;
+        // window.location.hash = hash;
       });
     }
   });
 }
 
-var slider = $('.pars');
+var slider = $('.about-product__main');
 var sliderOptions = {
   infinite: true,
   slidesToShow: 1,

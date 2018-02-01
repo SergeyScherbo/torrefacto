@@ -1,8 +1,13 @@
 .text {
 	line-height: 1.5;
+	color: $mainColor;
 
-	&_small {
+	&--small {
 		font-size: 1.1666rem;
+	}
+
+	&--medium {
+		font-size: 1.3333rem;
 	}
 }
 
@@ -20,6 +25,7 @@
 	@extend %bord-rad3;
 	@extend %lspace-2;
 	@extend %fweight-700;
+	display: inline-block;
 	outline: none;
 	border: none;
 	height: 35px;
@@ -30,20 +36,33 @@
 		background-color: $green;
 		color: #fff;
 	}
+
+	&--white {
+		background-color: #fff;
+		color: $mainColor;
+	}
 }
 
 .link {
 	@extend %txt-up;
 	@extend %lspace-2;
 	@extend %fweight-700;
+
+	&--underline {
+		border-bottom: 1px solid $mainColor;
+	}
 }
 
 .heading-l2 {
 	@extend %fweight-900;
 	font-size: 2.1666rem;
+	margin-bottom: 30px;
 }
 
 .heading-l3 {
 	@extend %fweight-700;
 	@extend %txt-up;
+	@extend %lspace-2;
+	font-size: 1rem;
+	margin-bottom: 10px;
 }
