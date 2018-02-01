@@ -13,6 +13,10 @@
 	&--bold {
 		@extend %fweight-700;
 	}
+
+	&--footer {
+		color: #fff;
+	}
 }
 
 .text-link {
