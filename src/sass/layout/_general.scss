@@ -9,6 +9,7 @@ li {
 }
 
 a {
+	outline: none;
   color: inherit;
   text-decoration: none;
 }
@@ -113,13 +114,13 @@ body {
   @extend %pos-rel;
   @extend %disp-blk;
   @extend %txt-up;
+	@extend %main-transit;
   height: 50px;
   line-height: 50px;
   margin-top: -3px;
   letter-spacing: 2px;
   font-size: .8rem;
   cursor: pointer;
-  transition: .3s;
 
   &:before {
     @extend %pos-abs;
@@ -178,6 +179,14 @@ body {
 			top: 51px;
 		}
 	}
+}
+
+.currentSlide {
+	@extend %pos-abs;
+	@extend %txt-up;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .about-product__main {
@@ -473,7 +482,7 @@ body {
 	width: 100%;
 	height: 70px;
 	padding: 0 20px;
-	box-shadow: 0 0 0 1px $mainColor;
+	border: 1px solid $mainColor;
 
 	&:nth-of-type(odd) {
 		margin-right: 20px;
@@ -612,6 +621,7 @@ body {
 	}
 
 	.input-group {
+		@extend %disp-fl;
 		margin-bottom: 20px;
 		.input {
 			max-width: 260px;
@@ -620,6 +630,19 @@ body {
 			&:not(:last-of-type) {
 				margin-right: 15px;
 			}
+
+			@include phone {
+				max-width: 100%;
+
+				&:not(:last-of-type) {
+					margin-bottom: 15px;
+					margin-right: 0;
+				}
+			}
+		}
+
+		@include phone {
+			display: block;
 		}
 	}
 
@@ -675,10 +698,21 @@ body {
 	@extend %main-shadow;
 	padding: 20px;
 	background-image: url(../img/map.png);
+	background-size: cover;
 	color: #fff;
 
 	.button {
 		padding: 0 15px;
+
+		&:after {
+			@extend %pos-rel;
+			z-index: 2;
+			content: 'Подробнее в энциклопедии';
+
+			@include phone {
+				content: 'В энциклопедию';
+			}
+		}
 	}
 }
 
@@ -709,4 +743,60 @@ body {
 
 .discussion-header {
 	margin-bottom: 30px;
+}
+
+.modal-layout {
+	@extend %disp-fl;
+	@extend %just-cent;
+	@extend %align-cent;
+	@extend %main-transit;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	padding: 20px;
+	background-color: fade-out(#000, .3);
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(.95);
+}
+
+.is-open {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1);
+}
+
+.modal-close {
+	@extend %pos-abs;
+	top: 15px;
+	right: 15px;
+	font-size: 2rem;
+	color: #fff;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.modal-image {
+	max-width: 800px;
+	width: 100%;
+	height: 500px;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	@include laptop {
+		height: 450px;
+	}
+
+	@include tablet {
+		height: 400px;
+	}
 }

@@ -70,6 +70,11 @@
 		@include hide;
 	}
 
+	label {
+		@extend %disp-fl;
+		align-items: flex-start;
+	}
+
 	.checkbox-icon,
 	.checkbox-text {
 		@extend %vertical;
@@ -78,9 +83,11 @@
 	.checkbox-icon {
 		@extend %pos-rel;
 		@extend %bord-rad50;
+		min-width: 10px;
 		width: 10px;
 		height: 10px;
 		margin-right: 10px;
+		margin-top: 4px;
 		border: 1px solid $mainColor;
 
 		&:after {
@@ -159,6 +166,10 @@
 
 		&:before {
 			background-color: darken(#fff, 5%);
+		}
+
+		&:after {
+			content: 'В энциклопедию'
 		}
 	}
 
