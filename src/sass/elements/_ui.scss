@@ -130,6 +130,7 @@
 	line-height: 35px;
 	font-family: 'Circe';
 	overflow: hidden;
+	cursor: pointer;
 
 	&__inner {
 		@extend %pos-rel;

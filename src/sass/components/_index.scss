@@ -36,6 +36,7 @@
 	height: 110px;
 	border: 3px solid $lightGray;
 	overflow: hidden;
+	cursor: pointer;
 
 	img {
 		@extend %main-transit;
@@ -245,6 +246,7 @@
 
 .purchase-type__el {
 	@extend %main-transit;
+	cursor: pointer;
 	flex: 1;
 	height: 35px;
 	line-height: 33px;
@@ -332,6 +334,7 @@ input:checked + .purchase-type__el {
 		color: $gray;
 		text-align: center;
 		font-size: 1.1666rem;
+		cursor: pointer;
 
 		@include phone {
 			width: 105px;
