@@ -289,10 +289,17 @@ body {
 	width: 140px;
 	height: 180px;
 	padding: 15px;
+  border: 1px solid transparent;
+  transition: .25s $ease;
 
 	&:not(:last-of-type) {
 		margin-bottom: 15px;
 	}
+
+  &:hover{
+    border-color: $mainColor;
+    box-shadow: none;
+  }
 
 	@include tablet {
 		&:not(:last-of-type) {
@@ -647,6 +654,10 @@ body {
 	}
 
 	.link {
+    -webkit-apperance: none;
+    border: none;
+    padding: 0;
+    background: transparent;
 		display: inline-block;
 		margin-top: 35px;
 	}

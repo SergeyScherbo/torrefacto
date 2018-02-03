@@ -7,11 +7,13 @@ block modals
 			img(src='')
   
 block content
+	// BACK
 	.back-row
 		a.link(href='#back')
 			+icon('ico-right-arrow')
 			span.link--underline Назад в каталог
-
+	
+	// PRODUCT :: START
 	.product
 		.product-row
 			.product-image
@@ -20,11 +22,12 @@ block content
 				a.product-image__beans
 					img(src='img/beans.jpg')
 					+icon('ico-zoom')
+			// buy section
 			.product-buy
 				.product-buy__name
 					.product-icons
 						.indicator-wrp
-							.indicator
+							.indicator(data-color="#61BF79" data-init-value="40")
 							span K
 						.spades
 							+icon('ico-spades')
@@ -64,8 +67,9 @@ block content
 							li.bitter__el
 							li.bitter__el
 							li.bitter__el
-
-				form.product-buy__purchase
+								
+				// purchase form
+				form.product-buy__purchase(action="#" js-productBuyForm)
 					p.purchase-milling
 						span Помол
 						span + #[span.milling-price 50] &#8381;
@@ -93,11 +97,11 @@ block content
 								input(type='text' value='1' disabled)
 								.purchase-amount__option.increment +
 					.purchase-buttons
-						button.button.button--green
+						button(type="submit").button.button--green
 							.button__inner Купить за #[span.purchase-sum 250]
 						a.link(href='#') + Добавить в избранное
 
-
+	// FLOATING NAV
 	.nav-outer
 		ul.nav
 			li.nav__el
@@ -112,7 +116,8 @@ block content
 				a.nav__link(href='#fifth') Характеристика
 			li.nav__el
 				a.nav__link(href='#sixth') Обсуждение
-
+	
+	// PRODUCT DESCRIPTION
 	.about-product
 		.currentSlide Вкус
 		.about-product__main
@@ -139,11 +144,13 @@ block content
 					a.card(href='#')
 						h3.heading-l3 Подробнее<br> о группе классика
 						.indicator-wrp
-							.indicator
+							.indicator(data-color="#61BF79" data-init-value="40")
 							span K
 					a.card(href='#')
 						h3.heading-l3 Подробнее<br> о группах кофе
 						+icon('ico-fire')
+			
+			// section
 			section.about-product__section(id='second' data-sectionName='Обзор')
 				h2.heading-l2 Обзор от Сергея Плутахина
 				.about-product__subsection
@@ -163,7 +170,8 @@ block content
 						p.text.text--medium.post__comment-p Гондурас Сан-Маркос можно готовить любым способом, и в каждом он будет хорош по-своему. Однако с учетом его вкусовых характеристик мы в первую очередь рекомендуем его для эспрессо и турки, где важна насыщенность, затем для френч-пресса и моки (для тех, кто предпочитает в кофе «тело») и только потом для фильтр-кофемашин, которые хороши, на наш взгляд, для раскрытия изысканного вкуса.
 						p.text.text--medium.post__comment-p Гондурас Сан-Маркос — один из бестселлеров Torrefacto.
 						a.link.link--underline(href='#') Обсудить
-						
+			
+			// section
 			section.about-product__section(id='third' data-sectionName='Как готовить')
 				h2.heading-l2 Как готовить
 				.cards
@@ -180,6 +188,8 @@ block content
 					a.card(href='#')
 						h3.heading-l3 Приготовление<br> во френч-прессе
 						+icon('ico-tea-pot')
+			
+			// section
 			section.about-product__section(id='fourth' data-sectionName='Происхождение')
 				h2.heading-l2 Происхождение
 				.about-product__subsection
@@ -196,6 +206,8 @@ block content
 							.button__inner
 				.about-product__subsection
 					p.text.text--medium Вам нравится Куба? Вам нужна насыщенность? Вы не любите кислинку? Вы хотите лучшее соотношение цена-качество? Тогда Гондурас Сан-Маркос — одно из лучших предложений специально для вас.
+			
+			// section
 			section.about-product__section(id='fifth' data-sectionName='Характеристика')
 				h2.heading-l2 Характеристика
 				ul.list.text.text--medium
@@ -220,9 +232,12 @@ block content
 					li.list__el 
 						span.list__key Потенциал зерна
 						span.list__value 82,50
+		
+		// SIMILAR ITEMS (sidebar)
 		.about-product__side
 			h2.heading-l2 Похожие товары
 			.similar
+				// item
 				a.similar__el(href='#')
 					.bgletter.bgletter--green c
 					.similar__el-content
@@ -244,7 +259,7 @@ block content
 								li.bitter__el
 								li.bitter__el
 						.similar-price От #[span 327 &#8381;] за 150 г
-				
+				// item
 				a.similar__el(href='#')
 					.bgletter.bgletter--yellow o
 					.similar__el-content
@@ -266,7 +281,7 @@ block content
 								li.bitter__el
 								li.bitter__el
 						.similar-price От #[span 342 &#8381;] за 150 г
-						
+				// item
 				a.similar__el(href='#')
 					.bgletter.bgletter--green c
 					.similar__el-content
@@ -288,7 +303,8 @@ block content
 								li.bitter__el
 								li.bitter__el
 						.similar-price От #[span 327 &#8381;] за 150 г
-			
+	
+	// DISCUSSION
 	.discussion(id='sixth')
 		.discussion-row
 			header.discussion-header
@@ -297,7 +313,7 @@ block content
 			.post
 				.post__av.post__av--default.post__av--desktop
 					+icon('ico-logo')
-				form.post__comment
+				form.post__comment(action="#")
 					p.text.text--small.post__label Ваш комментарий
 					textarea.input.input--big
 					p.text.text--small.post__label Дополнительная информация (необязательно)
@@ -309,7 +325,8 @@ block content
 						label(for='personal-data')
 							span.checkbox-icon
 							span.checkbox-text.text.text--small Я соглашаюсь с обработкой персональных данных.
-					a.link.link--underline(href='#') Опубликовать
+					button(type="submit").link.link--underline(href='#') Опубликовать
+			// posts
 			ul.posts
 				li.post
 					.post__av.post__av--default.post__av--desktop
