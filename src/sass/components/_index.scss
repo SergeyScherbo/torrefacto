@@ -1,6 +1,10 @@
 // index
 .product {
 	margin-bottom: 50px;
+
+	@include tablet {
+		margin-bottom: 25px;
+	}
 }
 
 .product-row {
@@ -48,11 +52,10 @@
 
 	@include tablet {
 		margin-left: 0;
-		max-width: 70%;
 	}
 
 	@include phone {
-		max-width: 280px;
+		max-width: 290px;
 	}
 }
 
@@ -298,8 +301,14 @@ input:checked + .purchase-type__el {
 	label {
 		@extend %disp-blk;
 		@extend %main-transit;
+		@extend %bord-rad3;
 		width: 115px;
+		height: 35px;
+		line-height: 33px;
+		border: 1px solid $lightGray;
+		color: $gray;
 		text-align: center;
+		font-size: 1.1666rem;
 
 		@include phone {
 			width: 105px;

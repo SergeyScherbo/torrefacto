@@ -4,6 +4,10 @@
 	font-size: 1.1666rem;
 	background-color: $mainColor;
 	color: #fff;
+
+	@include tablet {
+		padding: 15px 0;
+	}
 }
 
 .footer__row {
@@ -11,8 +15,10 @@
 }
 
 .footer__col {
-	&:not(:last-of-type) {
-		margin-right: 80px;
+	@include col(2);
+
+	@include tablet {
+		@include hide;
 	}
 }
 
@@ -24,9 +30,27 @@
 }
 
 .footer__join {
+	@include col(6);
+	@extend %disp-fl;
+	justify-content: flex-end;
 	.text {
 		&:not(:last-of-type) {
 			margin-bottom: 10px;
+		}
+	}
+
+	@include tablet {
+		@include col(12, null);
+		justify-content: flex-start;
+
+		.heading-l3 {
+			@include hide;
+		}
+
+		.text {
+			&:not(:last-of-type) {
+				@include hide;
+			}
 		}
 	}
 }
@@ -43,6 +67,10 @@
 	@extend %disp-fl;
 	margin-bottom: 15px;
 	align-items: center;
+
+	@include tablet {
+		@include hide;
+	}
 }
 
 .socials__el {
@@ -52,5 +80,6 @@
 }
 
 .footer-link {
+	@extend %pos-rel;
 	@include link-hover(#fff);
 }

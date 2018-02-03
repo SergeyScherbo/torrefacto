@@ -72,11 +72,29 @@ nav.find('.nav__link').on('click', function () {
 // });
 
 var slider = $('.about-product__main');
-var sliderOptions = {
+var sidebarSlider = $('.similar');
+var prev = `
+	<button type="button" class="slick-prev">
+		<svg class="ico ico-right-arrow">
+			<use xlink:href="img/sprite.svg#ico-right-arrow"></use>
+		</svg>
+	</button>
+`;
+var next = `
+	<button type="button" class="slick-next">
+		<svg class="ico ico-right-arrow">
+			<use xlink:href="img/sprite.svg#ico-right-arrow"></use>
+		</svg>
+	</button>
+`;
+var mainSliderOpt = {
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
   mobileFirst: true,
+	adaptiveHeight: true,
+	prevArrow: prev,
+	nextArrow: next,
   responsive: [
     {
       breakpoint: 767,
@@ -85,7 +103,24 @@ var sliderOptions = {
   ]
 };
 
-slider.slick(sliderOptions);
+var sidebarSliderOpt = {
+	infinite: false,
+	slidesToScroll: 1,
+	mobileFirst: true,
+	variableWidth: true,
+	dots: true,
+	arrows: false,
+	centerMode: true,
+	responsive: [
+		{
+			breakpoint: 767,
+			settings: 'unslick'
+		}
+	]
+};
+
+slider.slick(mainSliderOpt);
+sidebarSlider.slick(sidebarSliderOpt);
 
 $(window).on('resize', debounce(function(e){
   if ( $(window).width() > 767 ) {
@@ -95,6 +130,29 @@ $(window).on('resize', debounce(function(e){
     return
   }
   if (!slider.hasClass('slick-initialized')) {
-    return slider.slick(sliderOptions);
+    return slider.slick(mainSliderOpt);
   }
 }, 300));
+
+$(window).on('resize', debounce(function(e){
+  if ( $(window).width() > 767 ) {
+    if (sidebarSlider.hasClass('slick-initialized')) {
+      sidebarSlider.slick('unslick');
+    }
+    return
+  }
+  if (!sidebarSlider.hasClass('slick-initialized')) {
+    return sidebarSlider.slick(sidebarSliderOpt);
+  }
+}, 300));
+
+$(window).on('resize', function() {
+	var $sidebar = $('.about-product__side');
+	var $main = $('.about-product__main');
+	var $discus = $('.discussion');
+	if ( $(window).width() <= 767 ) {
+		$discus.after($sidebar);
+	} else {
+		$main.after($sidebar);
+	}
+});

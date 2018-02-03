@@ -1,6 +1,9 @@
 .text {
 	line-height: 1.5;
 	color: $mainColor;
+	overflow-wrap: break-word;
+  word-wrap: break-word;
+	word-break: break-word;
 
 	&--small {
 		font-size: 1.1666rem;
@@ -16,6 +19,12 @@
 
 	&--footer {
 		color: #fff;
+
+		span {
+			&:not(:last-of-type) {
+				margin-right: 10px;
+			}
+		}
 	}
 }
 
@@ -102,6 +111,7 @@
 }
 
 .button {
+	@extend %pos-rel;
 	@extend %txt-up;
 	@extend %bord-rad3;
 	@extend %lspace-2;
@@ -112,15 +122,50 @@
 	height: 35px;
 	line-height: 35px;
 	font-family: 'Circe';
+	overflow: hidden;
+
+	&__inner {
+		@extend %pos-rel;
+		z-index: 2;
+	}
+
+	&:before {
+		@extend %pos-abs;
+		@extend %main-transit;
+		z-index: 1;
+		content: '';
+		width: 500px;
+		height: 500px;
+		left: 50%;
+		top: 50%;
+		margin-left: -250px;
+		margin-top: -250px;
+		border-radius: 50%;
+		transform: scale(0);
+	}
 
 	&--green {
 		background-color: $green;
 		color: #fff;
+
+		&:before {
+			background-color: darken($green, 5%);
+		}
 	}
 
 	&--white {
 		background-color: #fff;
 		color: $mainColor;
+
+		&:before {
+			background-color: darken(#fff, 5%);
+		}
+	}
+
+	&:hover {
+		&:before {
+			transform: scale(1);
+		}
 	}
 }
 
@@ -148,13 +193,18 @@
 	@extend %lspace-2;
 	@extend %fweight-700;
 
-	&--default {
-
-	}
-
 	&--underline {
 		@include link-hover($mainColor);
 		@extend %pos-rel;
+	}
+
+	&--comments {
+		&:before {
+			content: '+ Все комментарии к кофе Гондурас Сан-Маркос';
+			@include phone {
+				content: '+ читать все сообщения'
+			}
+		}
 	}
 }
 

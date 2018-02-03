@@ -86,6 +86,7 @@ body {
 .nav-outer {
   @extend %pos-rel;
 	@extend %main-transit;
+	z-index: 99;
   margin-bottom: -50px;
   height: 50px;
   border-top: 3px solid $lightGray;
@@ -102,7 +103,6 @@ body {
 
 .is-sticky {
   position: fixed;
-	z-index: 99;
   top: 0;
   left: 0;
   width: 100%;
@@ -153,24 +153,212 @@ body {
 
 .about-product {
 	@include row(null, flex-start);
+	@extend %pos-rel;
 	padding-top: 50px;
+
+	@include tablet {
+		padding-left: 0;
+		padding-right: 0;
+
+		&:after,
+		&:before {
+			position: absolute;
+			left: 0;
+			content: '';
+			height: 1px;
+			width: 100%;
+			background-color: $lightGray;
+		}
+
+		&:before {
+			top: 0;
+		}
+
+		&:after {
+			top: 51px;
+		}
+	}
 }
 
 .about-product__main {
 	@include col(8, null);
+	@extend %pos-rel;
 
 	@include tablet {
-		@include col(12);
+		@include col(12, null);
+	}
+
+	.slick-prev,
+	.slick-next {
+		@extend %pos-abs;
+		outline: none;
+		border: none;
+		top: -49px;
+		padding: 0;
+		width: 50px;
+		height: 50px;
+		background-color: transparent;
+
+		&:hover {
+			background-color: #f8f8f8;
+		}
+	}
+
+	.slick-prev {
+		padding-top: 5px;
+		left: 0;
+	}
+
+	.slick-next {
+		right: 0;
+		transform: rotate(180deg);
 	}
 }
 
 .about-product__side {
 	@include col(4, null);
-	height: 150px;
-	background-color: deepskyblue;
+	@extend %disp-fl;
+	@extend %just-cent;
+	padding-top: 95px;
+
+	.heading-l2 {
+		display: none;
+	}
 
 	@include tablet {
-		@include hide;
+		@include col(12, null);
+		display: block;
+		padding-top: 30px;
+		padding-bottom: 35px;
+
+		.heading-l2 {
+			display: block;
+			margin-left: 15px;
+		}
+	}
+}
+
+.similar {
+	.slick-dots {
+		display: block;
+		margin-top: 18px;
+		font-size: 0;
+		text-align: center;
+
+		li {
+			@extend %vertical;
+
+			&:not(:last-of-type) {
+				margin-right: 10px;
+			}
+
+			button {
+				@extend %bord-rad50;
+				@extend %main-transit;
+				width: 6px;
+				height: 6px;
+				padding: 0;
+				outline: none;
+				border: 1px solid $mainColor;
+			}
+		}
+
+		.slick-active {
+			button {
+				background-color: $mainColor;
+			}
+		}
+	}
+}
+
+.similar__el {
+	@extend %pos-rel;
+	@extend %bord-rad3;
+	@extend %main-shadow;
+	display: block;
+	outline: none;
+	width: 140px;
+	height: 180px;
+	padding: 15px;
+
+	&:not(:last-of-type) {
+		margin-bottom: 15px;
+	}
+
+	@include tablet {
+		&:not(:last-of-type) {
+			margin-right: 20px;
+		}
+
+		// margin for shadow
+		&:nth-of-type(n) {
+			margin-top: 5px;
+			margin-bottom: 10px;
+		}
+	}
+
+	.bgletter {
+		@extend %pos-abs;
+		@extend %txt-up;
+		@extend %fweight-900;
+		top: 55%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 9rem;
+		opacity: .6;
+	}
+
+	.bgletter--green {
+		color: $green;
+	}
+
+	.bgletter--yellow {
+		color: $yellow;
+	}
+
+	.similar__el-content {
+		@extend %pos-rel;
+		z-index: 5;
+
+		.product-number {
+			justify-content: flex-end;
+			margin-bottom: 15px;
+		}
+
+		.similar-heading {
+			font-size: 1.5rem;
+			margin-bottom: 5px;
+		}
+
+		.heading-l3 {
+			margin-bottom: 30px;
+		}
+
+		.bitter {
+			font-size: 1.333rem;
+			flex-wrap: wrap;
+			margin-bottom: 15px;
+
+			ul {
+				@extend %disp-fl;
+				@extend %just-sb;
+				margin-top: 5px;
+				width: 100%;
+				margin-left: 0;
+
+				li {
+					&:not(:last-of-type) {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+
+		.similar-price {
+			span {
+				@extend %fweight-700;
+			}
+		}
 	}
 }
 
@@ -186,11 +374,38 @@ body {
 	&:last-of-type {
 		padding-bottom: 65px;
 	}
+
+	@include tablet {
+		&:not(:last-of-type) {
+			border-bottom: none;
+		}
+
+		&:nth-of-type(n) {
+			padding: 30px $gutter 50px;
+		}
+	}
 }
 
 .about-product__subsection {
 	&:not(:last-of-type) {
 		margin-bottom: 35px;
+	}
+}
+
+.about-product__image {
+	@extend %bord-rad3;
+	width: 100%;
+	height: 360px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	@include laptop {
+		height: 300px;
 	}
 }
 
@@ -217,24 +432,36 @@ body {
 		margin-top: 15px;
 		margin-bottom: 15px;
 	}
-}
 
-.cards {
-	@extend %disp-fl;
-
-	.ico-angle {
-		margin-left: 30px;
-		margin-top: 20px;
-		font-size: 1.8rem;
+	@include phone {
+		&:nth-of-type(3),
+		&:last-of-type {
+			@include hide;
+		}
 	}
 }
 
-.card-group {
+.cards {
+	@extend %pos-rel;
 	@extend %disp-fl;
 	flex-wrap: wrap;
-	flex: 1;
 	justify-content: flex-end;
-	margin-left: auto;
+	padding-left: 50px;
+
+	.ico-angle {
+		@extend %pos-abs;
+		top: 20px;
+		left: 15px;
+		font-size: 1.8rem;
+	}
+
+	@include phone {
+		padding-left: 35px;
+
+		.ico-angle {
+			left: 0;
+		}
+	}
 }
 
 .card {
@@ -242,11 +469,11 @@ body {
 	@extend %bord-rad3;
 	@extend %main-transit;
 	align-items: center;
-	max-width: 260px;
+	max-width: calc(50% - 10px);
 	width: 100%;
 	height: 70px;
 	padding: 0 20px;
-	border: 1px solid $mainColor;
+	box-shadow: 0 0 0 1px $mainColor;
 
 	&:nth-of-type(odd) {
 		margin-right: 20px;
@@ -280,6 +507,18 @@ body {
 	.circle {
 		margin-right: 0;
 	}
+
+	@include phone {
+		max-width: 100%;
+
+		&:nth-of-type(n) {
+			margin: 0;
+		}
+
+		&:not(:last-of-type) {
+			margin-bottom: 20px;
+		}
+	}
 }
 
 .posts {
@@ -296,6 +535,14 @@ body {
 		top: 15px;
 		left: 30px;
 	}
+
+	@include tablet {
+		padding-left: 0;
+
+		.ico-angle {
+			@include hide;
+		}
+	}
 }
 
 .post {
@@ -304,12 +551,15 @@ body {
 	margin-bottom: 30px;
 }
 
+.post--single {
+	margin-bottom: 0;
+}
+
 .post__av {
 	@extend %bord-rad50;
 	@extend %main-shadow;
 	width: 60px;
 	height: 60px;
-	margin-right: 20px;
 
 	img {
 		width: 100%;
@@ -327,6 +577,23 @@ body {
 			top: 50%;
 			font-size: 2.7rem;
 			transform: translate(-50%, -50%);
+		}
+	}
+
+	&--desktop {
+		margin-right: 20px;
+		@include tablet {
+			@include hide;
+		}
+	}
+
+	&--mobile {
+		@include hide;
+		@include tablet {
+			display: block;
+			width: $mobileAvDiameter;
+			height: $mobileAvDiameter;
+			margin-right: 15px;
 		}
 	}
 }
@@ -360,14 +627,39 @@ body {
 		display: inline-block;
 		margin-top: 35px;
 	}
+
+	@include tablet {
+		padding: 20px 20px 25px;
+	}
 }
 
-.post__name {
+.post-header {
 	@extend %disp-fl;
 	@extend %just-sb;
 	margin-bottom: 25px;
-	padding-bottom: 15px;
 	border-bottom: 1px dashed $mainColor;
+
+	@include tablet {
+		align-items: center;
+		padding-bottom: 15px;
+	}
+}
+
+.post-header-inner {
+	@extend %disp-fl;
+	@extend %just-sb;
+	width: 100%;
+	padding-bottom: 15px;
+
+	@include tablet {
+		display: block;
+		padding-bottom: 0;
+		width: calc(100% - #{$mobileAvDiameter} - 15px);
+
+		.post-writer {
+			line-height: 2;
+		}
+	}
 }
 
 .post__label {

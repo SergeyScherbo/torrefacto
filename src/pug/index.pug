@@ -32,20 +32,15 @@ block content
 					.product-rating
 						ul.stars
 							li.stars__el.stars__el--active
-								i
-									+icon('ico-star')
+								+icon('ico-star')
 							li.stars__el.stars__el--active
-								i
-									+icon('ico-star')
+								+icon('ico-star')
 							li.stars__el.stars__el--active
-								i
-									+icon('ico-star')
+								+icon('ico-star')
 							li.stars__el.stars__el--active
-								i
-									+icon('ico-star')
+								+icon('ico-star')
 							li.stars__el
-								i
-									+icon('ico-star')
+								+icon('ico-star')
 						.product-rating__number
 							span 4.12 (17 голосов)
 					p.product-description.text.text--small Гондурас Сан-Маркос - плотная арабика с сильным телом, шоколадным оттенком и горчинкой. Вкус плотный, ровный, нацеленный и устремленный.
@@ -77,11 +72,11 @@ block content
 						.purchase-weight__el
 							p 150 г
 							input(type='radio' name='purchase-weight' id='purchaseWeight1' checked)
-							label(for='purchaseWeight1').input 241 &#8381;
+							label(for='purchaseWeight1') 241 &#8381;
 						.purchase-weight__el
 							p 450 г
 							input(type='radio' name='purchase-weight' id='purchaseWeight2')
-							label(for='purchaseWeight2').input 513 &#8381;
+							label(for='purchaseWeight2') 513 &#8381;
 						span.x-sign &#x2715;
 						.purchase-weight__el
 							p шт
@@ -90,8 +85,8 @@ block content
 								span 1
 								.purchase-amount__option.decrement +
 					.purchase-buttons
-						button.button.button--green Купить за
-							span.purchase-sum 250
+						button.button.button--green
+							.button__inner Купить за #[span.purchase-sum 250]
 						a.link + Добавить в избранное
 
 
@@ -132,23 +127,26 @@ block content
 					p.text.text--medium Арабика ценится за уникальные вкусовые характеристики, которые несут с собой разные оттенки ее кислинки. Поэтому чем выше уровень арабики, тем у нее более сложный и многогранный вкус, заложенный в кислинке. Напротив, хорошая коммерческая арабика обладает достаточно линейным вкусом без особых нюансов — что, на самом деле, далеко не так плохо, как может показаться на первый взгляд, ведь кислинка нравится далеко не всем.
 				.cards
 					+icon('ico-angle').angle
-					.card-group
-						.card
-							h3.heading-l3 Подробнее<br> о группе классика
-							.circle
-						.card
-							h3.heading-l3 Подробнее<br> о группах кофе
-							+icon('ico-fire')
+					.card
+						h3.heading-l3 Подробнее<br> о группе классика
+						.circle
+					.card
+						h3.heading-l3 Подробнее<br> о группах кофе
+						+icon('ico-fire')
 			section.about-product__section(id='second' data-sectionName='Обзор')
 				h2.heading-l2 Обзор от Сергея Плутахина
 				.about-product__subsection
 					.about-product__image
 						img(src='img/package-2.png')
-				.post
-					.post__av
+				.post.post--single
+					.post__av.post__av--desktop
 						img(src='img/avatar.png')
 					.post__comment
-						header.post__name.text.text--small Сергей Плутахин, Torrefacto
+						header.post-header
+							.post__av.post__av--mobile
+								img(src='img/avatar.png')
+							.post-header-inner.text.text--small
+								p.post-writer Сергей Плутахин, Torrefacto
 						p.text.text--medium.post__comment-p Когда мы впервые попробовали этот кофе, то были буквально ошеломлены: никаких вкусовых изысков, но какое мощное тело! Какая насыщенность! Сильный какао-профиль, минимальная кислинка, высокая плотность с легкими дымными нотками. По-другому не скажешь — у этого кофе очень сильный характер!
 						h3.heading-l3 Как готовить
 						p.text.text--medium.post__comment-p Гондурас Сан-Маркос можно готовить любым способом, и в каждом он будет хорош по-своему. Однако с учетом его вкусовых характеристик мы в первую очередь рекомендуем его для эспрессо и турки, где важна насыщенность, затем для френч-пресса и моки (для тех, кто предпочитает в кофе «тело») и только потом для фильтр-кофемашин, которые хороши, на наш взгляд, для раскрытия изысканного вкуса.
@@ -159,19 +157,18 @@ block content
 				h2.heading-l2 Как готовить
 				.cards
 					+icon('ico-angle')
-					.card-group
-						.card
-							h3.heading-l3 Как готовить<br> в турке?
-							+icon('ico-cezve')
-						.card
-							h3.heading-l3 Как заваривать<br> в мокке?
-							+icon('ico-moka')
-						.card
-							h3.heading-l3 Как готовить<br> в эспрессо машине?
-							+icon('ico-cof-machine')
-						.card
-							h3.heading-l3 Приготовление<br> во френч-прессе
-							+icon('ico-tea-pot')
+					.card
+						h3.heading-l3 Как готовить<br> в турке?
+						+icon('ico-cezve')
+					.card
+						h3.heading-l3 Как заваривать<br> в мокке?
+						+icon('ico-moka')
+					.card
+						h3.heading-l3 Как готовить<br> в эспрессо машине?
+						+icon('ico-cof-machine')
+					.card
+						h3.heading-l3 Приготовление<br> во френч-прессе
+						+icon('ico-tea-pot')
 			section.about-product__section(id='fourth' data-sectionName='Происхождение')
 				h2.heading-l2 Происхождение
 				.about-product__subsection
@@ -184,7 +181,8 @@ block content
 					.article
 						h3.heading-l3 Страна
 						h2.heading-l2 Гондурас: золото, серебро, дорогое дерево, кофейные и банановые плантации
-						a.button.button--white Подробнее в энциклопедии
+						a(href='#').button.button--white
+							.button__inner Подробнее в энциклопедии
 				.about-product__subsection
 					p.text.text--medium Вам нравится Куба? Вам нужна насыщенность? Вы не любите кислинку? Вы хотите лучшее соотношение цена-качество? Тогда Гондурас Сан-Маркос — одно из лучших предложений специально для вас.
 			section.about-product__section(id='fifth' data-sectionName='Происхождение')
@@ -212,13 +210,81 @@ block content
 						span.list__key Потенциал зерна
 						span.list__value 82,50
 		.about-product__side
+			h2.heading-l2 Похожие товары
+			.similar
+				a.similar__el(href='#')
+					.bgletter.bgletter--green c
+					.similar__el-content
+						.product-number.product-number--small
+							+icon('ico-number')
+							span 22
+						h3.similar-heading Бразилия
+						h3.heading-l3 Сантос 17/18
+						.bitter
+							span Кислотность
+							ul
+								li.bitter__el.bitter__el--active
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+						.similar-price От #[span 327 &#8381;] за 150 г
+				
+				a.similar__el(href='#')
+					.bgletter.bgletter--yellow o
+					.similar__el-content
+						.product-number.product-number--small
+							+icon('ico-number')
+							span 22
+						h3.similar-heading Бразилия
+						h3.heading-l3 Сантос 19
+						.bitter
+							span Кислотность
+							ul
+								li.bitter__el.bitter__el--active
+								li.bitter__el.bitter__el--active
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+						.similar-price От #[span 342 &#8381;] за 150 г
+						
+				a.similar__el(href='#')
+					.bgletter.bgletter--green c
+					.similar__el-content
+						.product-number.product-number--small
+							+icon('ico-number')
+							span 22
+						h3.similar-heading Бразилия
+						h3.heading-l3 Сантос 17/18
+						.bitter
+							span Кислотность
+							ul
+								li.bitter__el.bitter__el--active
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+								li.bitter__el
+						.similar-price От #[span 327 &#8381;] за 150 г
+			
 	.discussion(id='sixth')
 		.discussion-row
 			header.discussion-header
 				h2.heading-l2 Обсуждение Кофе Гондурас Сан-Маркос
 				p.text.text--medium Мы читаем все комментарии и принимаем любую критику во внимание. Комментарии также служат другим покупателям ориентиром при выборе сортов. Поделитесь своим мнением, и вы поможете кому-то сделать правильный выбор.
 			.post
-				.post__av.post__av--default
+				.post__av.post__av--default.post__av--desktop
 					+icon('ico-logo')
 				form.post__comment
 					p.text.text--small.post__label Ваш комментарий
@@ -235,12 +301,15 @@ block content
 					a.link.link--underline Опубликовать
 			ul.posts
 				li.post
-					.post__av.post__av--default
+					.post__av.post__av--default.post__av--desktop
 						+icon('ico-logo')
 					.post__comment
-						header.text.text--small.post__name
-							span Aleksey, энтузиаст
-							time 23.10.2017 11:14:00
+						header.post-header
+							.post__av.post__av--default.post__av--mobile
+								+icon('ico-logo')
+							.post-header-inner.text.text--small
+								p.post-writer Aleksey, энтузиаст
+								time.post-time 23.10.2017 11:14:00
 						p.text.text--medium.post__comment-p
 							span.text--bold Способ приготовления:
 							span.post-theme эспрессо
@@ -249,16 +318,16 @@ block content
 				ul.posts--inner
 					+icon('ico-angle')
 					li.post
-						.post__av
+						.post__av.post__av--desktop
 							img(src='img/avatar-2.png')
 						.post__comment
-							header.text.text--small.post__name
-								span Юлия, Torrefacto
-								time.post__time 23.10.2017 11:14:00
-							p.text.text--medium.post__comment-p
-								span.text--bold Способ приготовления:
-								span.post-theme эспрессо
+							header.post-header
+								.post__av.post__av--mobile
+									img(src='img/avatar-2.png')
+								.post-header-inner.text.text--small
+									p.post-writer Юлия, Torrefacto
+									time.post-time 23.10.2017 11:14:00
 							p.text.text--medium.post__comment-p Гондурас и Паганини — два бестселлера в темной обжарке :) Если понравился Паганини, попробуйте еще Карузо #[a.text-link(href='https://www.torrefacto.ru/catalog/roasted/caruso') https://www.torrefacto.ru/catalog/roasted/caruso] и Скарлатти #[a.text-link(href='https://www.torrefacto.ru/catalog/roasted/scarlatti') https://www.torrefacto.ru/catalog/roasted/scarlatti], это смеси арабик того же производителя. И, конечно, аккуратней с дозами :)
 							a.link.link--underline Ответить
 			.link-wrap
-				a.link + Все комментарии к кофе Гондурас Сан-Маркос
+				a.link.link--comments

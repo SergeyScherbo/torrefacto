@@ -4,10 +4,6 @@
 	background-color: $mainColor;
 	color: #fff;
 
-	@include laptop {
-		font-size: 1.2rem;
-	}
-
 	@include tablet {
 		@include hide;
 	}
@@ -26,7 +22,7 @@
 	@extend %disp-fl;
 	margin-left: auto;
 	margin-right: auto;
-	transform: translateX(80px);
+	transform: translateX(75px);
 
 	&__el {
 		&:not(:last-of-type) {
@@ -35,7 +31,7 @@
 	}
 
 	@include laptop {
-		transform: translateX(28px);
+		transform: translateX(36px);
 	}
 }
 
@@ -173,8 +169,31 @@
 }
 
 .navigation__link {
+	@extend %pos-rel;
 	@extend %txt-up;
 	@extend %fweight-700;
+
+	&:after {
+		@extend %pos-abs;
+		@extend %main-transit;
+		content: '';
+		left: 0;
+		top: 7px;
+		height: 1px;
+		width: 100%;
+		background-color: $mainColor;
+		transform: translateX(-50%);
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&:hover {
+		&:after {
+			transform: translateX(0);
+			opacity: 1;
+			visibility: visible;
+		}
+	}
 }
 
 .navigation__logo {

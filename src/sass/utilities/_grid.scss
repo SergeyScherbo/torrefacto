@@ -32,8 +32,12 @@
   width: 100% / $columns * $n;
 }
 
-@mixin offset($n) {
+@mixin offset-right($n) {
 	margin-right: 100% / $columns * $n;
+}
+
+@mixin offset-left($n) {
+	margin-left: 100% / $columns * $n;
 }
 
 @mixin desktop {
