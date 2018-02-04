@@ -31,19 +31,26 @@ body {
 	font-weight: 400;
 }
 
+input,
+button {
+	font-family: 'Circe';
+}
+
 .back-row {
 	@include row(flex-start);
-	@extend %pos-rel;
+	position: relative;
 	margin-top: 35px;
 	margin-bottom: 30px;
 
 	.link {
 		.ico {
-			@extend %vertical;
+			display: inline-block;
+vertical-align: middle;
 			margin-right: 10px;
 		}
 		span {
-			@extend %vertical;
+			display: inline-block;
+vertical-align: middle;
 		}
 	}
 
@@ -85,8 +92,8 @@ body {
 }
 
 .nav-outer {
-  @extend %pos-rel;
-	@extend %main-transit;
+  position: relative;
+	transition: .3s;
 	z-index: 99;
   margin-bottom: -50px;
   height: 50px;
@@ -111,19 +118,18 @@ body {
 }
 
 .nav__link {
-  @extend %pos-rel;
-  @extend %disp-blk;
-  @extend %txt-up;
-	@extend %main-transit;
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+	transition: .3s;
   height: 50px;
   line-height: 50px;
   margin-top: -3px;
   letter-spacing: 2px;
-  font-size: .8rem;
   cursor: pointer;
 
   &:before {
-    @extend %pos-abs;
+    position: absolute;
     left: 0;
     top: 0;
     content: '';
@@ -142,6 +148,10 @@ body {
       visibility: visible;
     }
   }
+
+	@include laptop {
+		font-size: .8rem;
+	}
 }
 
 .is-current {
@@ -154,7 +164,7 @@ body {
 
 .about-product {
 	@include row(null, flex-start);
-	@extend %pos-rel;
+	position: relative;
 	padding-top: 50px;
 
 	@include tablet {
@@ -182,8 +192,8 @@ body {
 }
 
 .currentSlide {
-	@extend %pos-abs;
-	@extend %txt-up;
+	position: absolute;
+	text-transform: uppercase;
 	top: 20px;
 	left: 50%;
 	transform: translateX(-50%);
@@ -191,7 +201,7 @@ body {
 
 .about-product__main {
 	@include col(8, null);
-	@extend %pos-rel;
+	position: relative;
 
 	@include tablet {
 		@include col(12, null);
@@ -199,7 +209,7 @@ body {
 
 	.slick-prev,
 	.slick-next {
-		@extend %pos-abs;
+		position: absolute;
 		outline: none;
 		border: none;
 		top: -49px;
@@ -226,9 +236,10 @@ body {
 
 .about-product__side {
 	@include col(4, null);
-	@extend %disp-fl;
-	@extend %just-cent;
+	display: flex;
+	justify-content: flex-end;
 	padding-top: 95px;
+	padding-right: 40px;
 
 	.heading-l2 {
 		display: none;
@@ -255,15 +266,16 @@ body {
 		text-align: center;
 
 		li {
-			@extend %vertical;
+			display: inline-block;
+vertical-align: middle;
 
 			&:not(:last-of-type) {
 				margin-right: 10px;
 			}
 
 			button {
-				@extend %bord-rad50;
-				@extend %main-transit;
+				border-radius: 50%;
+				transition: .3s;
 				width: 6px;
 				height: 6px;
 				padding: 0;
@@ -281,25 +293,18 @@ body {
 }
 
 .similar__el {
-	@extend %pos-rel;
-	@extend %bord-rad3;
-	@extend %main-shadow;
+	position: relative;
+	border-radius: 3px;
+	box-shadow: 0 3px 6px 0 fade-out(#000, .8);
 	display: block;
 	outline: none;
 	width: 140px;
 	height: 180px;
 	padding: 15px;
-  border: 1px solid transparent;
-  transition: .25s $ease;
 
 	&:not(:last-of-type) {
 		margin-bottom: 15px;
 	}
-
-  &:hover{
-    border-color: $mainColor;
-    box-shadow: none;
-  }
 
 	@include tablet {
 		&:not(:last-of-type) {
@@ -314,9 +319,9 @@ body {
 	}
 
 	.bgletter {
-		@extend %pos-abs;
-		@extend %txt-up;
-		@extend %fweight-900;
+		position: absolute;
+		text-transform: uppercase;
+		font-weight: 900;
 		top: 55%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -333,7 +338,7 @@ body {
 	}
 
 	.similar__el-content {
-		@extend %pos-rel;
+		position: relative;
 		z-index: 5;
 
 		.product-number {
@@ -356,8 +361,8 @@ body {
 			margin-bottom: 15px;
 
 			ul {
-				@extend %disp-fl;
-				@extend %just-sb;
+				display: flex;
+				justify-content: space-between;
 				margin-top: 5px;
 				width: 100%;
 				margin-left: 0;
@@ -372,7 +377,7 @@ body {
 
 		.similar-price {
 			span {
-				@extend %fweight-700;
+				font-weight: 700;
 			}
 		}
 	}
@@ -409,7 +414,7 @@ body {
 }
 
 .about-product__image {
-	@extend %bord-rad3;
+	border-radius: 3px;
 	width: 100%;
 	height: 360px;
 	overflow: hidden;
@@ -426,15 +431,15 @@ body {
 }
 
 .tastes {
-	@extend %disp-fl;
+	display: flex;
 }
 
 .tastes__el {
-	@extend %disp-fl;
-	@extend %align-cent;
-	@extend %bord-rad3;
-	@extend %main-shadow;
-	@extend %txt-cent;
+	display: flex;
+	align-items: center;
+	border-radius: 3px;
+	box-shadow: 0 3px 6px 0 fade-out(#000, .8);
+	text-align: center;
 	flex-direction: column;
 	justify-content: flex-end;
 	width: 110px;
@@ -458,14 +463,14 @@ body {
 }
 
 .cards {
-	@extend %pos-rel;
-	@extend %disp-fl;
+	position: relative;
+	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	padding-left: 50px;
 
 	.ico-angle {
-		@extend %pos-abs;
+		position: absolute;
 		top: 20px;
 		left: 15px;
 		font-size: 1.8rem;
@@ -481,9 +486,9 @@ body {
 }
 
 .card {
-	@extend %disp-fl;
-	@extend %bord-rad3;
-	@extend %main-transit;
+	display: flex;
+	border-radius: 3px;
+	transition: .3s;
 	align-items: center;
 	max-width: calc(50% - 10px);
 	width: 100%;
@@ -501,7 +506,7 @@ body {
 	}
 
 	&:hover {
-		@extend %main-shadow;
+		box-shadow: 0 3px 6px 0 fade-out(#000, .8);
 		border-color: transparent;
 
 		.ico {
@@ -516,7 +521,7 @@ body {
 	}
 
 	.ico {
-		@extend %main-transit;
+		transition: .3s;
 		font-size: 2.3rem;
 	}
 
@@ -542,11 +547,11 @@ body {
 }
 
 .posts--inner {
-	@extend %pos-rel;
+	position: relative;
 	padding-left: 80px;
 
 	.ico-angle {
-		@extend %pos-abs;
+		position: absolute;
 		font-size: 1.8rem;
 		top: 15px;
 		left: 30px;
@@ -562,7 +567,7 @@ body {
 }
 
 .post {
-	@extend %disp-fl;
+	display: flex;
 	flex: 1;
 	margin-bottom: 30px;
 }
@@ -572,8 +577,8 @@ body {
 }
 
 .post__av {
-	@extend %bord-rad50;
-	@extend %main-shadow;
+	border-radius: 50%;
+	box-shadow: 0 3px 6px 0 fade-out(#000, .8);
 	width: 60px;
 	height: 60px;
 
@@ -584,11 +589,11 @@ body {
 	}
 
 	&--default {
-		@extend %pos-rel;
+		position: relative;
 		box-shadow: none;
 
 		.ico {
-			@extend %pos-abs;
+			position: absolute;
 			left: 50%;
 			top: 50%;
 			font-size: 2.7rem;
@@ -615,20 +620,22 @@ body {
 }
 
 .post__comment {
-	@extend %bord-rad3;
-	@extend %main-shadow;
+	border-radius: 3px;
+	box-shadow: 0 3px 6px 0 fade-out(#000, .8);
 	flex: 1;
 	padding: 26px 30px 35px;
 	background-color: #fff;
 
-	&-p {
+	.text {
+		line-height: 1.75;
+
 		&:not(:last-of-type) {
 			margin-bottom: 25px;
 		}
 	}
 
 	.input-group {
-		@extend %disp-fl;
+		display: flex;
 		margin-bottom: 20px;
 		.input {
 			max-width: 260px;
@@ -668,8 +675,8 @@ body {
 }
 
 .post-header {
-	@extend %disp-fl;
-	@extend %just-sb;
+	display: flex;
+	justify-content: space-between;
 	margin-bottom: 25px;
 	border-bottom: 1px dashed $mainColor;
 
@@ -680,8 +687,8 @@ body {
 }
 
 .post-header-inner {
-	@extend %disp-fl;
-	@extend %just-sb;
+	display: flex;
+	justify-content: space-between;
 	width: 100%;
 	padding-bottom: 15px;
 
@@ -705,8 +712,8 @@ body {
 }
 
 .article {
-	@extend %bord-rad3;
-	@extend %main-shadow;
+	border-radius: 3px;
+	box-shadow: 0 3px 6px 0 fade-out(#000, .8);
 	padding: 20px;
 	background-image: url(../img/map.png);
 	background-size: cover;
@@ -714,31 +721,26 @@ body {
 
 	.button {
 		padding: 0 15px;
-
-		&:after {
-			@extend %pos-rel;
-			z-index: 2;
-			content: 'Подробнее в энциклопедии';
-
-			@include phone {
-				content: 'В энциклопедию';
-			}
-		}
 	}
 }
 
 .list__el {
-	line-height: 1.7;
+	line-height: 1.6;
+
+	&--dashed {
+		border-bottom: 1px dashed $mainColor;
+	}
 }
 
 .list__key,
 .list__value {
-	@extend %vertical;
+	display: inline-block;
+vertical-align: middle;
 	vertical-align: top;
 }
 
 .list__key {
-	@extend %fweight-700;
+	font-weight: 700;
 	width: 320px;
 }
 
@@ -757,10 +759,10 @@ body {
 }
 
 .modal-layout {
-	@extend %disp-fl;
-	@extend %just-cent;
-	@extend %align-cent;
-	@extend %main-transit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .3s;
 	position: fixed;
 	z-index: 100;
 	width: 100%;
@@ -781,7 +783,7 @@ body {
 }
 
 .modal-close {
-	@extend %pos-abs;
+	position: absolute;
 	top: 15px;
 	right: 15px;
 	font-size: 2rem;

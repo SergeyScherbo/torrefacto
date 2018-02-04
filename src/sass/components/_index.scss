@@ -12,7 +12,7 @@
 }
 
 .product-image {
-	@extend %pos-rel;
+	position: relative;
 	margin-top: 30px;
 
 	@include tablet {
@@ -28,8 +28,8 @@
 }
 
 .product-image__beans {
-	@extend %pos-abs;
-	@extend %bord-rad50;
+	position: absolute;
+	border-radius: 50%;
 	bottom: -40px;
 	right: -20px;
 	width: 110px;
@@ -37,16 +37,18 @@
 	border: 3px solid $lightGray;
 	overflow: hidden;
 	cursor: pointer;
+	// fix for safari issue
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
 
 	img {
-		@extend %main-transit;
+		transition: .3s;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
 
 	.ico {
-		@extend %pos-abs;
+		position: absolute;
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
@@ -74,24 +76,26 @@
 }
 
 .product-buy__name {
-	@extend %disp-fl;
-	@extend %just-sb;
+	display: flex;
+	justify-content: space-between;
 	margin-bottom: 10px;
 }
 
 .product-icons {
 	.indicator-wrp {
 		margin-top: 6px;
+		margin-right: 10px;
 	}
 }
 
 .indicator-wrp {
-	@extend %pos-rel;
-	@extend %vertical;
+	position: relative;
+	display: inline-block;
+vertical-align: middle;
 
 	span {
-		@extend %pos-abs;
-		@extend %fweight-700;
+		position: absolute;
+		font-weight: 700;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -100,19 +104,22 @@
 }
 
 .spades {
-	@extend %vertical;
+	display: inline-block;
+vertical-align: middle;
 
 	.ico {
-		@extend %vertical;
+		display: inline-block;
+vertical-align: middle;
 		line-height: 10px;
 		margin-right: 10px;
 		font-size: 2.4rem;
 	}
 
 	span {
-		@extend %vertical;
-		@extend %txt-up;
-		@extend %fweight-700;
+		display: inline-block;
+vertical-align: middle;
+		text-transform: uppercase;
+		font-weight: 700;
 		font-size: .8rem;
 	}
 }
@@ -120,21 +127,21 @@
 .product-name {
 	margin-top: 30px;
 	h3 {
-		@extend %fweight-900;
-		@extend %lspace-2;
+		font-weight: 900;
+		letter-spacing: 2px;
 		margin-bottom: 10px;
 		font-size: 2.166rem;
 	}
 
 	p {
-		@extend %fweight-700;
-		@extend %txt-up;
-		@extend %lspace-2;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 2px;
 	}
 }
 
 .product-number {
-	@extend %disp-fl;
+	display: flex;
 
 	&--big {
 		.ico {
@@ -143,7 +150,7 @@
 		}
 
 		span {
-			@extend %fweight-900;
+			font-weight: 900;
 			font-size: 4.83rem;
 			line-height: 4rem;
 		}
@@ -157,7 +164,7 @@
 		}
 
 		span {
-			@extend %fweight-900;
+			font-weight: 900;
 			font-size: 1.5rem;
 			line-height: 1rem;
 		}
@@ -172,13 +179,13 @@
 }
 
 .product-rating {
-	@extend %disp-fl;
+	display: flex;
 	align-items: center;
 	margin-bottom: 10px;
 }
 
 .stars {
-	@extend %disp-fl;
+	display: flex;
 
 	&__el {
 		color: $lightGray;
@@ -195,11 +202,11 @@
 }
 
 .bitter {
-	@extend %disp-fl;
-	@extend %align-cent;
+	display: flex;
+	align-items: center;
 
 	ul {
-		@extend %disp-fl;
+		display: flex;
 		margin-left: 65px;
 	}
 
@@ -209,7 +216,7 @@
 }
 
 .bitter__el {
-	@extend %bord-rad50;
+	border-radius: 50%;
 	width: 5px;
 	height: 5px;
 	border: 1px solid $mainColor;
@@ -230,13 +237,12 @@
 }
 
 .purchase-milling {
-	@extend %disp-fl;
-	@extend %just-sb;
-	margin-bottom: 5px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .purchase-type {
-	@extend %disp-fl;
+	display: flex;
 	margin-bottom: 15px;
 
 	input {
@@ -245,7 +251,7 @@
 }
 
 .purchase-type__el {
-	@extend %main-transit;
+	transition: .3s;
 	cursor: pointer;
 	flex: 1;
 	height: 35px;
@@ -257,10 +263,10 @@
 
 	&:first-of-type,
 	&:last-of-type {
-		@extend %pos-rel;
+		position: relative;
 		&:after {
-			@extend %pos-abs;
-			@extend %main-transit;
+			position: absolute;
+			transition: .3s;
 			top: -1px;
 			content: '';
 			height: calc(100% + 2px);
@@ -304,8 +310,8 @@ input:checked + .purchase-type__el {
 }
 
 .purchase-weight {
-	@extend %disp-fl;
-	@extend %just-sb;
+	display: flex;
+	justify-content: space-between;
 
 	.x-sign {
 		align-self: flex-end;
@@ -319,14 +325,10 @@ input:checked + .purchase-type__el {
 		@include hide;
 	}
 
-	p {
-		margin-bottom: 5px;
-	}
-
 	label {
-		@extend %disp-blk;
-		@extend %main-transit;
-		@extend %bord-rad3;
+		display: block;
+		transition: .3s;
+		border-radius: 3px;
 		width: 115px;
 		height: 35px;
 		line-height: 33px;
@@ -348,8 +350,8 @@ input:checked + .purchase-type__el {
 }
 
 .purchase-amount {
-	@extend %disp-fl;
-	@extend %just-sb;
+	display: flex;
+	justify-content: space-between;
 	width: 75px;
 	height: 35px;
 	line-height: 36px;
@@ -366,7 +368,8 @@ input:checked + .purchase-type__el {
 	}
 
 	input {
-		@extend %txt-cent;
+		text-align: center;
+		-webkit-appearance: none;
 		display: inline-block;
 		border: none;
 		max-width: 30px;
@@ -379,6 +382,7 @@ input:checked + .purchase-type__el {
 	font-size: 1.2rem;
 	user-select: none;
 	cursor: pointer;
+	transition: .3s;
 
 	&:hover {
 		background-color: $lightGray;
@@ -390,7 +394,7 @@ input:checked + .purchase-type__el {
 }
 
 .purchase-buttons {
-	@extend %txt-cent;
+	text-align: center;
 	.button {
 		width: 100%;
 		margin-top: 15px;

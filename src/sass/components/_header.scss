@@ -1,6 +1,6 @@
 // header
 .header {
-	@extend %pos-rel;
+	position: relative;
 	background-color: $mainColor;
 	color: #fff;
 
@@ -19,7 +19,7 @@
 }
 
 .contacts {
-	@extend %disp-fl;
+	display: flex;
 	margin-left: auto;
 	margin-right: auto;
 	transform: translateX(75px);
@@ -36,16 +36,16 @@
 }
 
 .account {
-	@extend %disp-fl;
+	display: flex;
 	align-items: center;
 }
 
 .account__el {
 	&:first-of-type {
-		@extend %pos-rel;
+		position: relative;
 		margin-right: 10px;
 		&:after {
-			@extend %pos-abs;
+			position: absolute;
 			content: '';
 			right: -6px;
 			top: 0;
@@ -61,7 +61,7 @@
 }
 
 .account__link {
-	@extend %pos-rel;
+	position: relative;
 	&:not(.account__cart) {
 		@include link-hover(#fff);
 	}
@@ -69,12 +69,14 @@
 
 .account__cart {
 	.ico {
-		@extend %vertical;
+		display: inline-block;
+vertical-align: middle;
 		line-height: 5px;
 		margin-right: 10px;
 	}
 	span {
-		@extend %vertical;
+		display: inline-block;
+vertical-align: middle;
 
 		&:not(:last-of-type) {
 			margin-right: 5px;
@@ -149,10 +151,10 @@
 	&:nth-of-type(2),
 	&:nth-of-type(5),
 	&:nth-of-type(6) {
-		@extend %pos-rel;
+		position: relative;
 
 		&:after {
-			@extend %pos-abs;
+			position: absolute;
 			content: '';
 			right: -39px;
 			top: 3px;
@@ -168,20 +170,16 @@
 	}
 }
 
-.navigation__link {
-	@extend %pos-rel;
-	@extend %txt-up;
-	@extend %fweight-700;
-
+@mixin navigationHover($color, $top) {
 	&:after {
-		@extend %pos-abs;
-		@extend %main-transit;
+		position: absolute;
+		transition: .3s;
 		content: '';
 		left: 0;
-		top: 7px;
+		top: $top;
 		height: 1px;
 		width: 100%;
-		background-color: $mainColor;
+		background-color: $color;
 		transform: translateX(-50%);
 		opacity: 0;
 		visibility: hidden;
@@ -196,17 +194,25 @@
 	}
 }
 
+.navigation__link {
+	position: relative;
+	text-transform: uppercase;
+	font-weight: 700;
+
+	@include navigationHover($mainColor, 7px);
+}
+
 .navigation__logo {
 	margin-left: -15px;
 }
 
 .logo {
-	@extend %disp-blk;
+	display: block;
 	line-height: 33px;
 	font-size: 2.75rem;
 
 	i {
-		@extend %disp-blk;
+		display: block;
 		line-height: 10px;
 	}
 }
@@ -235,7 +241,7 @@
 
 .mobile-logo {
 	a {
-		@extend %disp-blk;
+		display: block;
 		line-height: 10px;
 		font-size: 2.65rem;
 	}
@@ -243,7 +249,7 @@
 
 .mobile-cart {
 	a {
-		@extend %disp-blk;
+		display: block;
 		line-height: 5px;
 		font-size: 1.5rem;
 	}

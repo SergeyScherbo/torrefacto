@@ -71,8 +71,8 @@ block content
 				// purchase form
 				form.product-buy__purchase(action="#" js-productBuyForm)
 					p.purchase-milling
-						span Помол
-						span + #[span.milling-price 50] &#8381;
+						span.label-small Помол
+						span.label-small + #[span.milling-price 50] &#8381;
 					.purchase-type
 						input(type='radio' name='purchase-type' id='purchaseType1' checked)
 						label(for='purchaseType1').purchase-type__el Не молоть
@@ -82,16 +82,16 @@ block content
 						label(for='purchaseType3').purchase-type__el Мелкий
 					.purchase-weight
 						.purchase-weight__el
-							p 150 г
+							p.label-small 150 г
 							input(type='radio' name='purchase-weight' id='purchaseWeight1' value='241' checked)
 							label(for='purchaseWeight1') 241 &#8381;
 						.purchase-weight__el
-							p 450 г
+							p.label-small 450 г
 							input(type='radio' name='purchase-weight' id='purchaseWeight2' value='513')
 							label(for='purchaseWeight2') 513 &#8381;
 						span.x-sign &#x2715;
 						.purchase-weight__el
-							p шт
+							p.label-small шт
 							.purchase-amount
 								.purchase-amount__option.decrement -
 								input(type='text' value='1' disabled)
@@ -165,10 +165,10 @@ block content
 								img(src='img/avatar.png')
 							.post-header-inner.text.text--small
 								p.post-writer Сергей Плутахин, Torrefacto
-						p.text.text--medium.post__comment-p Когда мы впервые попробовали этот кофе, то были буквально ошеломлены: никаких вкусовых изысков, но какое мощное тело! Какая насыщенность! Сильный какао-профиль, минимальная кислинка, высокая плотность с легкими дымными нотками. По-другому не скажешь — у этого кофе очень сильный характер!
+						p.text.text--medium Когда мы впервые попробовали этот кофе, то были буквально ошеломлены: никаких вкусовых изысков, но какое мощное тело! Какая насыщенность! Сильный какао-профиль, минимальная кислинка, высокая плотность с легкими дымными нотками. По-другому не скажешь — у этого кофе очень сильный характер!
 						h3.heading-l3 Как готовить
-						p.text.text--medium.post__comment-p Гондурас Сан-Маркос можно готовить любым способом, и в каждом он будет хорош по-своему. Однако с учетом его вкусовых характеристик мы в первую очередь рекомендуем его для эспрессо и турки, где важна насыщенность, затем для френч-пресса и моки (для тех, кто предпочитает в кофе «тело») и только потом для фильтр-кофемашин, которые хороши, на наш взгляд, для раскрытия изысканного вкуса.
-						p.text.text--medium.post__comment-p Гондурас Сан-Маркос — один из бестселлеров Torrefacto.
+						p.text.text--medium Гондурас Сан-Маркос можно готовить любым способом, и в каждом он будет хорош по-своему. Однако с учетом его вкусовых характеристик мы в первую очередь рекомендуем его для эспрессо и турки, где важна насыщенность, затем для френч-пресса и моки (для тех, кто предпочитает в кофе «тело») и только потом для фильтр-кофемашин, которые хороши, на наш взгляд, для раскрытия изысканного вкуса.
+						p.text.text--medium Гондурас Сан-Маркос — один из бестселлеров Torrefacto.
 						a.link.link--underline(href='#') Обсудить
 			
 			// section
@@ -203,7 +203,7 @@ block content
 						h3.heading-l3 Страна
 						h2.heading-l2 Гондурас: золото, серебро, дорогое дерево, кофейные и банановые плантации
 						a.button.button--white(href='#')
-							.button__inner
+							.button__inner Подробнее в энциклопедии
 				.about-product__subsection
 					p.text.text--medium Вам нравится Куба? Вам нужна насыщенность? Вы не любите кислинку? Вы хотите лучшее соотношение цена-качество? Тогда Гондурас Сан-Маркос — одно из лучших предложений специально для вас.
 			
@@ -230,7 +230,7 @@ block content
 						span.list__key Урожай
 						span.list__value 2016/17 г.
 					li.list__el 
-						span.list__key Потенциал зерна
+						span.list__key #[span.list__el--dashed Потенциал зерна]
 						span.list__value 82,50
 		
 		// SIMILAR ITEMS (sidebar)
@@ -314,9 +314,9 @@ block content
 				.post__av.post__av--default.post__av--desktop
 					+icon('ico-logo')
 				form.post__comment(action="#")
-					p.text.text--small.post__label Ваш комментарий
+					p.label-medium Ваш комментарий
 					textarea.input.input--big
-					p.text.text--small.post__label Дополнительная информация (необязательно)
+					p.label-medium Дополнительная информация (необязательно)
 					.input-group
 						input.input(type='text' placeholder='Марка воды')
 						input.input(type='text' placeholder='Способ приготовления')
@@ -338,10 +338,10 @@ block content
 							.post-header-inner.text.text--small
 								p.post-writer Aleksey, энтузиаст
 								time.post-time 23.10.2017 11:14:00
-						p.text.text--medium.post__comment-p
+						p.text.text--medium
 							span.text--bold Способ приготовления:
 							span.post-theme эспрессо
-						p.text.text--medium.post__comment-p Очень понравился, не определился для себя что больше понравился: Гонудрас Сан-Марко или Паганини, пожалуй оба сорта поселились на постоянку в меню. сдерживаю себя по количеству чашек, т.к. сложно остановиться.
+						p.text.text--medium Очень понравился, не определился для себя что больше понравился: Гонудрас Сан-Марко или Паганини, пожалуй оба сорта поселились на постоянку в меню. сдерживаю себя по количеству чашек, т.к. сложно остановиться.
 						a.link.link--underline(href='#') Ответить
 				ul.posts--inner
 					+icon('ico-angle')
@@ -355,7 +355,7 @@ block content
 								.post-header-inner.text.text--small
 									p.post-writer Юлия, Torrefacto
 									time.post-time 23.10.2017 11:14:00
-							p.text.text--medium.post__comment-p Гондурас и Паганини — два бестселлера в темной обжарке :) Если понравился Паганини, попробуйте еще Карузо #[a.text-link(href='https://www.torrefacto.ru/catalog/roasted/caruso') https://www.torrefacto.ru/catalog/roasted/caruso] и Скарлатти #[a.text-link(href='https://www.torrefacto.ru/catalog/roasted/scarlatti') https://www.torrefacto.ru/catalog/roasted/scarlatti], это смеси арабик того же производителя. И, конечно, аккуратней с дозами :)
+							p.text.text--medium Гондурас и Паганини — два бестселлера в темной обжарке :) Если понравился Паганини, попробуйте еще Карузо #[a.text-link(href='https://www.torrefacto.ru/catalog/roasted/caruso') https://www.torrefacto.ru/catalog/roasted/caruso] и Скарлатти #[a.text-link(href='https://www.torrefacto.ru/catalog/roasted/scarlatti') https://www.torrefacto.ru/catalog/roasted/scarlatti], это смеси арабик того же производителя. И, конечно, аккуратней с дозами :)
 							a.link.link--underline(href='#') Ответить
 			.link-wrap
-				a.link.link--comments(href='#')
+				a.link.allComments(href='#') + Все комментарии к кофе Гондурас Сан-Маркос

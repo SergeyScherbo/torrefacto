@@ -6,6 +6,7 @@ $(document).ready(function(){
 
 	var _window = $(window);
 	var _document = $(document);
+	var tabletBP = 767;
 
 
 	var nav = $('.nav-outer'),
@@ -87,7 +88,7 @@ $(document).ready(function(){
 		nextArrow: next,
 	  responsive: [
 	    {
-	      breakpoint: 767,
+	      breakpoint: tabletBP,
 	      settings: 'unslick'
 	    }
 	  ]
@@ -103,7 +104,7 @@ $(document).ready(function(){
 		centerMode: true,
 		responsive: [
 			{
-				breakpoint: 767,
+				breakpoint: tabletBP,
 				settings: 'unslick'
 			}
 		]
@@ -114,7 +115,7 @@ $(document).ready(function(){
 
 	// function for slick slider on certain breakpoint
 	function slickUnslick(slider, sliderOptions) {
-		if ( _window.width() > 767 ) {
+		if ( _window.width() > tabletBP ) {
 	    if (slider.hasClass('slick-initialized')) {
 	      slider.slick('unslick');
 	    }
@@ -145,7 +146,7 @@ $(document).ready(function(){
 		var sidebar = $('.about-product__side');
 		var main = $('.about-product__main');
 		var discus = $('.discussion');
-		if ( _window.width() <= 767 ) {
+		if ( _window.width() <= tabletBP ) {
 			discus.after(sidebar);
 		} else {
 			main.after(sidebar);
@@ -216,6 +217,21 @@ $(document).ready(function(){
 
 		$(indicator).radialIndicator(options);
 
-	})
+	});
+
+
+
+	// ----------------------------------
+	// link text depend on screen size
+	// ----------------------------------
+	_window.on('resize', debounce(function() {
+		if ( _window.width() > tabletBP ) {
+			$('.allComments').text('+ Все комментарии к кофе Гондурас Сан-Маркос');
+			$('.article .button').text('Подробнее в энциклопедии');
+		} else {
+			$('.allComments').text('+ Читать все сообщения');
+			$('.article .button').text('В энциклопедию');
+		}
+	}, 200));
 
 })

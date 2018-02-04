@@ -14,7 +14,7 @@
 	}
 
 	&--bold {
-		@extend %fweight-700;
+		font-weight: 700;
 	}
 
 	&--footer {
@@ -29,13 +29,24 @@
 }
 
 .text-link {
-	color: $yellow;
+	position: relative;
+	display: inline-block;
 	text-decoration: underline;
+
+	color: $yellow;
+	transition: .3s;
+
+	&:hover {
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: $yellow;
+		color: #fff;
+	}
 }
 
 .input {
-	@extend %main-transit;
-	-webkit-apperance: none;
+	transition: .3s;
+	-webkit-appearance: none;
 	outline: none;
 	height: 35px;
 	line-height: 33px;
@@ -43,11 +54,10 @@
 	border: 1px solid $lightGray;
 	border-radius: 3px;
 	font-size: 1.1666rem;
-	font-family: 'Circe';
 	color: $mainColor;
 
 	&::placeholder {
-		@extend %txt-up;
+		text-transform: uppercase;
 		color: $lightGray;
 	}
 
@@ -66,24 +76,35 @@
 	}
 }
 
+.label-small {
+	font-size: 1rem;
+	margin-bottom: 5px;
+}
+
+.label-medium {
+	font-size: 1.1666rem;
+	margin-bottom: 10px;
+}
+
 .checkbox {
 	input {
 		@include hide;
 	}
 
 	label {
-		@extend %disp-fl;
+		display: flex;
 		align-items: flex-start;
 	}
 
 	.checkbox-icon,
 	.checkbox-text {
-		@extend %vertical;
+		display: inline-block;
+vertical-align: middle;
 	}
 
 	.checkbox-icon {
-		@extend %pos-rel;
-		@extend %bord-rad50;
+		position: relative;
+		border-radius: 50%;
 		min-width: 10px;
 		width: 10px;
 		height: 10px;
@@ -92,9 +113,9 @@
 		border: 1px solid $mainColor;
 
 		&:after {
-			@extend %pos-abs;
-			@extend %bord-rad50;
-			@extend %main-transit;
+			position: absolute;
+			border-radius: 50%;
+			transition: .3s;
 			content: '';
 			left: 50%;
 			top: 50%;
@@ -119,28 +140,27 @@
 }
 
 .button {
-	@extend %pos-rel;
-	@extend %txt-up;
-	@extend %bord-rad3;
-	@extend %lspace-2;
-	@extend %fweight-700;
+	position: relative;
+	text-transform: uppercase;
+	border-radius: 3px;
+	letter-spacing: 2px;
+	font-weight: 700;
 	display: inline-block;
 	outline: none;
 	border: none;
 	height: 35px;
 	line-height: 35px;
-	font-family: 'Circe';
 	overflow: hidden;
 	cursor: pointer;
 
 	&__inner {
-		@extend %pos-rel;
+		position: relative;
 		z-index: 2;
 	}
 
 	&:before {
-		@extend %pos-abs;
-		@extend %main-transit;
+		position: absolute;
+		transition: .3s;
 		z-index: 1;
 		content: '';
 		width: 500px;
@@ -169,10 +189,6 @@
 		&:before {
 			background-color: darken(#fff, 5%);
 		}
-
-		&:after {
-			content: 'В энциклопедию'
-		}
 	}
 
 	&:hover {
@@ -184,8 +200,8 @@
 
 @mixin link-hover($bgc) {
 	&:after {
-		@extend %pos-abs;
-		@extend %main-transit;
+		position: absolute;
+		transition: .3s;
 		content: '';
 		top: calc(100% + 1px);
 		left: 0;
@@ -202,40 +218,31 @@
 }
 
 .link {
-	@extend %txt-up;
-	@extend %lspace-2;
-	@extend %fweight-700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 700;
 
 	&--underline {
 		@include link-hover($mainColor);
-		@extend %pos-rel;
-	}
-
-	&--comments {
-		&:before {
-			content: '+ Все комментарии к кофе Гондурас Сан-Маркос';
-			@include phone {
-				content: '+ читать все сообщения'
-			}
-		}
+		position: relative;
 	}
 }
 
 .link-wrap {
-	@extend %txt-cent;
+	text-align: center;
 	width: 100%;
 }
 
 .heading-l2 {
-	@extend %fweight-900;
+	font-weight: 900;
 	font-size: 2.1666rem;
 	margin-bottom: 30px;
 }
 
 .heading-l3 {
-	@extend %fweight-700;
-	@extend %txt-up;
-	@extend %lspace-2;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 	font-size: 1rem;
 	margin-bottom: 10px;
 }
