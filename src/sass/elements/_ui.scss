@@ -292,16 +292,23 @@
 	&--dashed {
 		border-bottom: 1px dashed $mainColor;
 	}
+
+	@include phone {
+		font-size: 1.2rem;
+	}
 }
 
 .list__key,
 .list__value {
 	display: inline-block;
-vertical-align: middle;
 	vertical-align: top;
 }
 
 .list__key {
 	font-weight: 700;
 	width: 320px;
+
+	@include phone {
+		width: 180px;
+	}
 }
