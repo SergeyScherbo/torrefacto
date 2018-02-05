@@ -341,8 +341,10 @@
 }
 
 .mobile-layout__content {
-	transform: translateX(-150px);
-	transition: .3s ease;
+	transform: translateX(-100%);
+	transition: .3s;
+	// transition-delay: .3s;
+
 	&--slide {
 		transform: translateX(0);
 	}
