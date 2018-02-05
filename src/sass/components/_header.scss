@@ -67,16 +67,44 @@
 	}
 }
 
+@mixin cartIconHover($bg, $col) {
+	&:after {
+		position: absolute;
+		content: '';
+		left: 50%;
+		top: 50%;
+		margin-top: -17.5px;
+		margin-left: -17.5px;
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
+		background-color: $bg;
+		transform: scale(.3);
+		opacity: 0;
+		visibility: hidden;
+		transition: .3s;
+	}
+
+	&:hover {
+		color: $col;
+		&:after {
+			transform: scale(1);
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
 .account__cart {
 	.ico {
 		display: inline-block;
-vertical-align: middle;
+		vertical-align: middle;
 		line-height: 5px;
 		margin-right: 10px;
 	}
 	span {
 		display: inline-block;
-vertical-align: middle;
+		vertical-align: middle;
 
 		&:not(:last-of-type) {
 			margin-right: 5px;
@@ -91,31 +119,7 @@ vertical-align: middle;
 		line-height: 35px;
 		text-align: center;
 
-		&:after {
-			position: absolute;
-			content: '';
-			left: 50%;
-			top: 50%;
-			margin-top: -17.5px;
-			margin-left: -17.5px;
-			width: 35px;
-			height: 35px;
-			border-radius: 50%;
-			background-color: #fff;
-			transform: scale(.3);
-			opacity: 0;
-			visibility: hidden;
-			transition: .3s;
-		}
-
-		&:hover {
-			color: $mainColor;
-			&:after {
-				transform: scale(1);
-				opacity: 1;
-				visibility: visible;
-			}
-		}
+		@include cartIconHover(#fff, $mainColor);
 
 		.ico {
 			position: relative;
@@ -142,7 +146,7 @@ vertical-align: middle;
 	height: 45px;
 
 	@include tablet {
-		height: 65px;
+		height: $mobileNavHeight;
 	}
 }
 
@@ -226,15 +230,62 @@ vertical-align: middle;
 }
 
 .mobile-toggle {
+	position: relative;
+	width: 20px;
+	height: 14px;
+	cursor: pointer;
+
 	span {
+		position: absolute;
+		left: 0;
 		display: block;
 		width: 20px;
 		height: 2px;
 		border-radius: 2px;
 		background-color: $mainColor;
+		transition: .3s;
 
-		&:not(:last-of-type) {
-			margin-bottom: 4px;
+		&:first-of-type {
+			top: 0px;
+		}
+
+		&:nth-of-type(2),
+		&:nth-of-type(3) {
+			top: 6px;
+		}
+
+		&:last-of-type {
+			top: 12px;
+		}
+	}
+
+	&--open {
+		span {
+			&:first-of-type {
+				top: 6px;
+			  width: 0%;
+			  left: 50%;
+			}
+
+			&:nth-of-type(2) {
+				-webkit-transform: rotate(45deg);
+			  -moz-transform: rotate(45deg);
+			  -o-transform: rotate(45deg);
+			  transform: rotate(45deg);
+			}
+
+			&:nth-of-type(3) {
+				-webkit-transform: rotate(-45deg);
+			  -moz-transform: rotate(-45deg);
+			  -o-transform: rotate(-45deg);
+			  transform: rotate(-45deg);
+			}
+
+			&:last-of-type {
+				top: 6px;
+			  width: 0%;
+			  left: 50%;
+			}
 		}
 	}
 }
@@ -249,8 +300,106 @@ vertical-align: middle;
 
 .mobile-cart {
 	a {
+		position: relative;
 		display: block;
-		line-height: 5px;
+		width: 35px;
+		height: 35px;
+		text-align: center;
 		font-size: 1.5rem;
+
+		@include cartIconHover($mainColor, #fff);
+
+		.ico {
+			position: relative;
+			z-index: 1;
+			margin-top: 8px;
+		}
+	}
+}
+
+
+.mobile-layout {
+	position: fixed;
+	z-index: 999;
+	top: $mobileNavHeight;
+	left: 0;
+	width: 100%;
+	height: calc(100vh - #{$mobileNavHeight});
+	padding: 25px $gutter 0;
+	background-color: fade-out(#000, .1);
+	color: #fff;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(-100px);
+	transition: .3s;
+
+	&--show {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0);
+	}
+}
+
+.mobile-layout__content {
+	transform: translateX(-150px);
+	transition: .3s ease;
+	&--slide {
+		transform: translateX(0);
+	}
+}
+
+.mobile-nav {
+	margin-bottom: 50px;
+
+	&__el {
+		&:not(:last-of-type) {
+			margin-bottom: 15px;
+		}
+	}
+
+	&__link {
+		position: relative;
+		display: inline-block;
+		padding-bottom: 5px;
+		font-size: 1.3333rem;
+
+		&:after {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			content: '';
+			width: 100%;
+			height: 1px;
+			background-color: #fff;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateX(-10px);
+			transition: .3s;
+		}
+
+		&:hover {
+			&:after {
+				opacity: 1;
+				visibility: visible;
+				transform: translateX(0);
+			}
+		}
+	}
+}
+
+.mobile-info {
+	&__el {
+		&:not(:last-of-type) {
+			margin-bottom: 15px;
+		}
+
+		p {
+			display: block;
+			margin-bottom: 5px;
+		}
+	}
+
+	&__link {
+		font-size: 1.3333rem;
 	}
 }

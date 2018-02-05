@@ -39,15 +39,45 @@ nav.navigation
 			a.navigation__link(href='#') О нас
 			
 
-		li.navigation-mobile__el.mobile-toggle
-			span
-			span
-			span
+		li.navigation-mobile__el
+			button.mobile-toggle
+				span
+				span
+				span
+				span
 		li.navigation-mobile__el.mobile-logo
-			a
+			a(href='/')
 				+icon('ico-logo-mobile')
 		li.navigation-mobile__el.mobile-cart
-			a
+			a(href='#')
 				+icon('ico-cart')
+
+.mobile-layout
+	.mobile-layout__content
+		ul.mobile-nav
+			li.mobile-nav__el
+				a.mobile-nav__link(href='#') Кофе
+			li.mobile-nav__el
+				a.mobile-nav__link(href='#') Аксессуары
+			li.mobile-nav__el
+				a.mobile-nav__link(href='#') Отзывы
+			li.mobile-nav__el
+				a.mobile-nav__link(href='#') Журнал
+			li.mobile-nav__el
+				a.mobile-nav__link(href='#') Помощь
+			li.mobile-nav__el
+				a.mobile-nav__link(href='#') О нас
+		
+		ul.mobile-info
+			li.mobile-info__el
+				p Ваш город:
+				a.mobile-info__link(href='') Москва
+			li.mobile-info__el
+				p Телефон:
+				a.mobile-info__link(href='tel:84996537117') 8 (499) 653-71-17
+			li.mobile-info__el
+				p E-mail:
+				a.mobile-info__link(href='mailto:info@torrefacto.ru') info@torrefacto.ru
+		
 			
 // HEADER :: END

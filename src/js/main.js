@@ -12,7 +12,7 @@ $(document).ready(function(){
 	var nav = $('.nav-outer'),
 			navHeight = nav.outerHeight(),
 			navOffset = $('.nav').offset().top,
-			slider = $('.about-product__main'),
+			slider = $('.about-product__content'),
 			sidebarSlider = $('.similar'),
 			prev = `
 		<button type="button" class="slick-prev">
@@ -72,6 +72,10 @@ $(document).ready(function(){
 			});
 		}
 	});
+
+	_window.on('resize', debounce(function(e) {
+		navOffset = $('.nav').offset().top;
+	}, 200));
 
 
 
@@ -142,16 +146,19 @@ $(document).ready(function(){
 	// -----------------
 	// appending sidebar
 	// -----------------
-	_window.on('resize', debounce(function() {
+	function appendSidebar() {
 		var sidebar = $('.about-product__side');
-		var main = $('.about-product__main');
+		var main = $('.about-product__content');
 		var discus = $('.discussion');
 		if ( _window.width() <= tabletBP ) {
 			discus.after(sidebar);
 		} else {
 			main.after(sidebar);
 		}
-	}, 200));
+	}
+
+	appendSidebar();
+	_window.on('resize', debounce(appendSidebar, 200));
 
 
 
@@ -176,28 +183,6 @@ $(document).ready(function(){
 		////
 
 		e.preventDefault();
-	})
-
-
-	// ---------------------
-	// modal for beans image
-	// ---------------------
-	var modal = $('.modal-layout');
-	var modalImg = $('.modal-image img');
-
-	$('.product-image__beans').on('click', function(e) {
-		e.preventDefault();
-		var currentImageSrc = $(this).find('img').attr('src');
-		modalImg.attr('src', currentImageSrc);
-		modal.addClass('is-open');
-		$(document.body).css('overflow', 'hidden');
-	});
-
-	$('.modal-layout').on('click', function(e) {
-		if($(e.target).hasClass('modal-layout') || $(e.target).hasClass('modal-close')) {
-			$(this).removeClass('is-open');
-			$(document.body).css('overflow', 'auto');
-		}
 	});
 
 	// ---------------------
@@ -220,18 +205,51 @@ $(document).ready(function(){
 	});
 
 
+	// ---------------------
+	// nise Select
+	// ---------------------
+	$('select.input').niceSelect();
 
-	// ----------------------------------
-	// link text depend on screen size
-	// ----------------------------------
-	_window.on('resize', debounce(function() {
-		if ( _window.width() > tabletBP ) {
-			$('.allComments').text('+ Все комментарии к кофе Гондурас Сан-Маркос');
-			$('.article .button').text('Подробнее в энциклопедии');
+
+
+
+	// ---------------------
+	// magnific Popup
+	// ---------------------
+	$('.product-image__beans').magnificPopup({
+		type: 'image',
+		mainClass: 'mfp-fade',
+		removalDelay: 300
+	});
+
+
+
+	// ---------------------
+	// mobile navigation
+	// ---------------------
+	var toggle = $('.mobile-toggle');
+	var mobileLayout = $('.mobile-layout');
+	var mobileContent = $('.mobile-layout__content');
+
+	toggle.on('click', function() {
+		$(this).toggleClass('mobile-toggle--open');
+		if($(this).hasClass('mobile-toggle--open')) {
+			$(document.body).css('overflow', 'hidden');
+			mobileLayout
+				.addClass('mobile-layout--show')
+				.on('transitionend webkitTransitionEnd oTransitionEnd', function() {
+					mobileContent.addClass('mobile-layout__content--slide');
+				})
+
 		} else {
-			$('.allComments').text('+ Читать все сообщения');
-			$('.article .button').text('В энциклопедию');
-		}
-	}, 200));
+			$(document.body).css('overflow', 'auto');
 
+			mobileContent
+				.removeClass('.mobile-layout__content--slide')
+				.on('transitionend webkitTransitionEnd oTransitionEnd', function() {
+					mobileLayout.removeClass('mobile-layout--show');
+				})
+		}
+
+	});
 })

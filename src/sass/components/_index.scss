@@ -36,7 +36,6 @@
 	height: 110px;
 	border: 3px solid $lightGray;
 	overflow: hidden;
-	cursor: pointer;
 	// fix for safari issue
 	-webkit-mask-image: -webkit-radial-gradient(white, black);
 
@@ -91,7 +90,7 @@
 .indicator-wrp {
 	position: relative;
 	display: inline-block;
-vertical-align: middle;
+	vertical-align: middle;
 
 	span {
 		position: absolute;
@@ -105,11 +104,11 @@ vertical-align: middle;
 
 .spades {
 	display: inline-block;
-vertical-align: middle;
+	vertical-align: middle;
 
 	.ico {
 		display: inline-block;
-vertical-align: middle;
+		vertical-align: middle;
 		line-height: 10px;
 		margin-right: 10px;
 		font-size: 2.4rem;
@@ -117,7 +116,7 @@ vertical-align: middle;
 
 	span {
 		display: inline-block;
-vertical-align: middle;
+		vertical-align: middle;
 		text-transform: uppercase;
 		font-weight: 700;
 		font-size: .8rem;
@@ -252,7 +251,6 @@ vertical-align: middle;
 
 .purchase-type__el {
 	transition: .3s;
-	cursor: pointer;
 	flex: 1;
 	height: 35px;
 	line-height: 33px;
@@ -336,7 +334,6 @@ input:checked + .purchase-type__el {
 		color: $gray;
 		text-align: center;
 		font-size: 1.1666rem;
-		cursor: pointer;
 
 		@include phone {
 			width: 105px;
@@ -369,7 +366,6 @@ input:checked + .purchase-type__el {
 
 	input {
 		text-align: center;
-		-webkit-appearance: none;
 		display: inline-block;
 		border: none;
 		max-width: 30px;
